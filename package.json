@@ -1,0 +1,11 @@
+{
+  "name": "musik-rhythmus-takt",
+  "version": "0.0.0",
+  "private": true,
+  "lernapps": {
+    "init": true
+  },
+  "devDependencies": {
+    "@lernapps/tooling": "^0.18.5"
+  }
+}
