@@ -158,11 +158,11 @@ blocks:
             - { answer: [2, 5], seed: 1 }
           rejected:
             - { answer: [5], seed: 1 }
-      - type: true-false
-        id: punktierte-viertel-gruppe
-        text: Eine punktierte Viertelnote füllt genau eine Hälfte eines 6/8-Takts.
-        answer: true
-        explanation: "Punktierte Viertel = 3 Achtel, ein 6/8-Takt hat zwei Gruppen zu 3 Achteln."
+      - type: ordering
+        id: dauern-ordnen
+        text: Ordne nach der Dauer, von kurz nach lang.
+        items: [Achtelnote, Viertelnote, punktierte Viertelnote, halbe Note, punktierte halbe Note]
+        explanation: "In Achteln: 1, 2, 3, 4, 6. Eine punktierte Viertel füllt eine Gruppe im 6/8-Takt, eine punktierte halbe den ganzen Takt."
         links:
           - title: Punktierung (Wikipedia)
             url: "https://de.wikipedia.org/wiki/Punktierung_(Musik)"
