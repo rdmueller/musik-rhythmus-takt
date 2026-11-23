@@ -34,6 +34,7 @@ zeigt, was für die Lernkontrolle schon sitzt.
 - Archetyp `explainer`, wie bei `musik-tonhoehe-harmonik`: kurze Erklärseiten, Aufgaben mit neuen Werten bei jedem
   Durchgang (`generated` mit Brüchen), Selbsteinschätzung als Probetest; ein Baustein zeichnet Noten, Pausen und Takte.
   `quiz` ohne Erklärseiten und ohne neu gezogene Aufgaben, `interactive` ohne Erklärseiten und Selbsteinschätzung.
+- Selbsteinschätzung im Kapitel, je Inhaltsseite 2 Komponenten oder `generated`, 12 Aufgaben: der Probetest. Ein Durchlauf bis zum Ergebnis im Lernenden-Check der ganzen App.
 - Kein `scope`: keine `open-task`, kein Material des Erstellers.
 - Name `musik-rhythmus-takt`: Schema `musik-<Strang>` aus der ersten App.
 
@@ -364,9 +365,9 @@ Keine Töne, kein Klatschen, kein Hören; keine Balken (nur Fähnchen); Rhythmen
 
 ### Tasks
 
-- [ ] Load skill `lernapps-explainer-self-assessment`. Add the self-assessment as it says, or write under "Key
+- [x] Load skill `lernapps-explainer-self-assessment`. Add the self-assessment as it says, or write under "Key
       decisions" why the app has none. Commit.
-- [ ] Load skill `lernapps-github`. Set up the repository and Pages as it says. Ask for the repository's name and
+- [x] Load skill `lernapps-github`. Set up the repository and Pages as it says. Ask for the repository's name and
       every click only the creator can make, in one message.
 - [ ] Push `work`, open the preview pull request and see its checks to green, as skill `lernapps-github` says.
 - [ ] **Checkpoint:** publish. Show what the app does and the preview link from the comment "Vorschau der App". Ask
