@@ -55,20 +55,28 @@ Gemeinsame Logik `src/components/Rhythmus.ts`: Dauer als ganze Zahl in 48steln d
 Achteltriole 4, Achtel 6, Vierteltriole 8, Viertel 12, Halbe 24, Ganze 48; Punkt +Hälfte); Taktlänge = oben × 48 /
 unten.
 
-- **Zeichen lesen** (`notenwerte-erkennen`, `pausen-kennen`, `punktierung`): `ZeichenLesen`; ein Zeichen, Antwort
-  Wert + Note/Pause (+ punktiert). Fehler: Fähnchen falsch gezählt, Note/Pause, ganze/halbe Pause, Punkt übersehen.
-- **Dauer rechnen**: `generated` aus `src/data/notenwerte.yaml`, `number`. Fehler: Punkt verdoppelt, Punkt ignoriert.
-- **Takt ergänzen** (`notenwerte-im-takt`, `weitere-taktarten`, `triole`): `TaktErgaenzen`; der fehlende Wert am
-  Taktende, als Note oder Pause; geprüft wird die Dauer. Fehler: Taktangabe falsch gelesen, Punkt vergessen,
-  Triole als normale Achtel.
-- **Taktstriche setzen**: `TaktstricheSetzen`; Lücken zwischen Noten antippen. Fehler: zu früh/zu spät.
+- **Zeichen lesen** (`notenwerte`, `pausen`, `punktierung`): `ZeichenLesen`, Props `werte`, `art` (`noten`,
+  `pausen`, `beides`), `punkt`; Antwort per Knöpfe Wert + Note/Pause (+ Punkt). Fehler (Reihenfolge der `mistakes`):
+  Nachbarwert, Note/Pause, ganze/halbe Pause, Punkt, weiter daneben. Nur angebotene Werte gelten als Fehler-Antwort.
+- **Dauer rechnen**: `generated` aus `src/data/notenwerte.yaml` (Vergleich in Sechzehnteln, `notenwerte#werte-vergleichen`)
+  und `src/data/punktiert.yaml` (punktierte Werte mit den Fehlerzahlen „verdoppelt“ und „ohne Punkt“,
+  `punktierung#punktiert-rechnen`).
+- **Takt ergänzen** (`notenwerte-im-takt`, `sechs-achtel-takt`, `triolen`): `TaktErgaenzen`, Props `takte`
+  (z. B. `["2/4", "3/4", "4/4"]`), `punkt`, `triole` (dann immer eine Achteltriole im Takt); der fehlende Wert am
+  Taktende, als Note oder Pause; geprüft wird die Dauer. Fehler: zu viel, zu wenig, Punkt vergessen, Triole als drei
+  Achtel.
+- **Taktstriche setzen**: `TaktstricheSetzen`, Props wie oben plus `anzahl` (Takte) und `lueckenname`; Knöpfe „nach
+  Zeichen n“. Fehler: zu früh, zu spät, fehlt, zu viel.
+- Takte füllt `src/components/Takt.ts` (Bausteine halbe bis Sechzehntel, punktierte Viertel und Achtel).
 - **Zuordnen, ordnen, entscheiden**: `matching`, `ordering`, `single-choice`, `true-false`, `number`, falsche Option
   mit `info`.
 
 ## Figures
 
 - `NotenZeile` (Komponente, Anzeige mit `nojs`): Noten und Pausen auf einer Linie, Hals und Fähnchen (keine Balken),
-  Punkte, Taktangabe, Taktstriche, Triolenklammer mit „3“, Namen darunter optional. Keine Bilddateien.
+  Punkte, Taktangabe (`oben`/`unten`, 0 = keine), `taktstriche` (Index des Zeichens davor), Triolenklammer mit „3“,
+  `namen` darunter (leere Texte lassen ein Zeichen unbenannt), `proportional` (Abstand nach Dauer: Zeilen gleicher
+  Dauer sind gleich breit, so im Notenbaum). Keine Bilddateien.
 - Konventionen: Hälse nach oben; ganze Pause hängt unter der Linie, halbe liegt darauf (eine Linie steht für die
   4. bzw. 3. Linie des Systems); bei 360 px lesbar; in Aufgaben keine Namen unter den Zeichen.
 
@@ -93,6 +101,11 @@ Geöffnet 2026-11-23, CC BY-SA 4.0, nur Fakten:
 5. `npx --no -- lernapps check`, Screenshots ansehen, committen.
 
 ## Rules learned from mistakes
+
+- Der Einstieg muss ohne Raten lösbar sein: Namen als Brüche („halbe“ gegen „Achtel“) geben die Antwort her.
+  (Lernenden-Check der Musterseite)
+- „Jede Zeile dauert gleich lang“ verlangt Zeilen gleicher Dauer und proportionale Abstände (16 Sechzehntel, nicht 2).
+- Übungen, deren Antwort wörtlich im Merke-Kasten steht, durch Aufgaben mit einem Denkschritt ersetzen.
 
 Aus `musik-tonhoehe-harmonik` übernommen:
 - Erklärfiguren benennen nur Anker; den Rest leiten die Lernenden her, sonst wird die Zuordnung zum Abschreiben.
