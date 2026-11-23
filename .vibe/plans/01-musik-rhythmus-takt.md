@@ -2,7 +2,7 @@
 # Read by the hooks, the review, the evals. Schema: @lernapps/tooling/guidance/plan-front-matter.v1.schema.json
 # Written by `lernapps plan` and the hooks. Never change a key or a value by hand.
 # Archetype, null until chosen in Explore. Allowed values: explainer, interactive, quiz.
-archetype: null
+archetype: explainer
 # Current phase. Allowed values: explore, plan, code, commit.
 phase: explore
 # prePushFailures: failed pre-push runs, written by the hook.
@@ -29,9 +29,44 @@ For you, the assistant. The process is in AGENTS.md; this plan holds the method.
 
 ## Key decisions
 
-<!-- One line each: decision and reason. Archetype first. Your own choice without the creator: mark "(guess)". -->
+- Archetyp `explainer`, wie bei `musik-tonhoehe-harmonik`: kurze Erklärseiten, Aufgaben mit neuen Werten bei jedem
+  Durchgang (`generated` mit Brüchen), Selbsteinschätzung als Probetest; ein Baustein zeichnet Noten, Pausen und Takte.
+  `quiz` ohne Erklärseiten und ohne neu gezogene Aufgaben, `interactive` ohne Erklärseiten und Selbsteinschätzung.
+- Name `musik-rhythmus-takt`: Schema `musik-<Strang>` aus der ersten App.
 
 ## Notes
+
+### Lernlandkarte Musik (https://lernapps.net/apps/map/musik.json, gelesen 2026-11-23) und Auftrag
+
+Der Ersteller bringt keinen eigenen Inhalt; der Auftrag aus der Karte wurde bestätigt: „passt so, Sechzehntel mit
+aufnehmen“.
+
+- Strang `musik/rhythmus-takt`. Alle Kompetenzen in Richtstufe 5-6 (Klasse 8: Wiederholung vor der Lernkontrolle);
+  keine übt bisher eine App (`practisedBy` leer).
+- Seiten in dieser Reihenfolge (Schritt nach `requires`):
+  1. `notenwerte-erkennen` (Schritt 4) – mit Sechzehnteln (steht nicht auf der Karte; Vorschlag an lernapps/apps nötig)
+  2. `pausen-kennen` (5)
+  3. `punktierung` (5)
+  4. `notenwerte-im-takt` (7)
+  5. `weitere-taktarten` (7)
+  6. `triole` (6; braucht `rhythmus-erklaeren`, steht nach den Taktseiten, weil sie mit Takten rechnet)
+- Wiederholung am Kapitelanfang: `tondauer-hoeren`, `taktarten-unterscheiden`, `rhythmus-erklaeren`.
+- Was die App nicht kann: Hören und Klatschen (Triolen hören, Taktwechsel hören); keine Geschichte.
+
+### Wie die Lernenden üben (Skill `lernapps-exercise-patterns`; kein Musik-Verweis, nächster: Mathematik)
+
+- Notenwerte und Pausen erkennen: Zeichen gezeigt (gezeichnet), Namen wählen; umgekehrt Name gegeben, Zeichen
+  wählen. Fehler: Viertel- und Achtelpause verwechselt, ganze und halbe Pause verwechselt (hängt / liegt).
+- Dauer vergleichen und rechnen: `generated` mit Brüchen aus einer Datendatei der Notenwerte („Wie viele Achtel
+  dauert eine punktierte Halbe?“). Fehler: Punkt verdoppelt statt die Hälfte addiert; Sechzehntel als halbe Achtel
+  vergessen.
+- Notenwerte im Takt: ein Takt mit Taktangabe und Noten wird gezeigt; „Passt der Takt?“, „Was fehlt noch?“ (Note
+  oder Pause wählen), „Wo gehört der Taktstrich hin?“. Fehler: Taktangabe als Bruch falsch gelesen (3/4 = drei
+  Viertel), Punktierung nicht mitgerechnet.
+- 6/8: Achtel zählen, Gruppen zu je drei; Vergleich 6/8 und 3/4. Fehler: 6/8 = 3/4 gerechnet (Dauer gleich, Betonung
+  anders).
+- Triole: drei Noten in der Zeit von zwei; Dauer im Takt rechnen. Fehler: Triolen-Achtel wie normale Achtel gezählt.
+- Probetest: Selbsteinschätzung des Kapitels (= der App).
 
 <!-- Strand or subject, competencies by chapter (ids), didactic approach, scope, sources and licences, open questions. -->
 
@@ -50,24 +85,26 @@ For you, the assistant. The process is in AGENTS.md; this plan holds the method.
       their own address, free and public, and once listed as a copy on lernapps.net. Say that the technical part
       (GitHub) comes at the end and that you do it.
 - [x] Interview: ask the topics "Goal" and "Learners" of "Answers".
-- [ ] Load skill `lernapps-map-assignment` and read the learning map of the subject as it says. The creator brings
+- [x] Load skill `lernapps-map-assignment` and read the learning map of the subject as it says. The creator brings
       the content themselves (material, a word list, the pages): note under "Notes" which competencies of the map it
       covers. Else write the skill's assignment, with its story; the creator's yes answers the topics Content and
       Amount. A subject without a map: skip this task and say so.
-- [ ] Load skill `lernapps-exercise-patterns` and read its reference for the subject. Note under "Notes" how learners
+- [x] Load skill `lernapps-exercise-patterns` and read its reference for the subject. Note under "Notes" how learners
       will practise what the goal names.
-- [ ] Choose the archetype as skill `lernapps-app` says: read the README of each archetype in question, then tell the
+- [x] Choose the archetype as skill `lernapps-app` says: read the README of each archetype in question, then tell the
       creator in plain words what the chosen one can and cannot do. Write the archetype and its reason under "Key
       decisions".
-- [ ] Run `npx --no -- lernapps skills --archetype <name>` with the chosen archetype. It installs the archetype's
+- [x] Run `npx --no -- lernapps skills --archetype <name>` with the chosen archetype. It installs the archetype's
       skills and adds the archetype's tasks to this plan.
-<!-- archetype: explore -->
+- [x] Load skill `lernapps-explainer-design`. An explainer has the look of the runtime: write "fixed by the
+      archetype" under the topic "Look and feel" of "Answers".
 - [ ] Interview: ask every other topic of "Answers", in order. Leave out only a topic that an answer of the creator
       already covers, and note which answer. A topic nobody answered is asked once before you write an assumption
       with "(guess)".
 - [ ] Load skill `lernapps-content-research` and research as it says. Write under "Notes": the strand or subject, the
       competencies by chapter with their ids, the sources you opened.
-<!-- archetype: explore-structure -->
+- [ ] Write under "Notes" which competency goes on which page and which pages form a chapter, as "Map the content" of
+      skill `lernapps-explainer-design` says. Per page, name the prerequisites the app does not practise.
 - [ ] Write under "Notes", one line per competency: how learners get there (they derive it, they do not only read it
       off), and which misconception the feedback catches.
 - [ ] Write under "Notes" the scope: what is in, what is out and why, the data range (for example "all main-group
@@ -88,11 +125,17 @@ For you, the assistant. The process is in AGENTS.md; this plan holds the method.
   - „Gymnasium, 8. Klasse, hessen, Musik“; „Vorwissen ist alles aus der Klasse 7. Was das ist, weiss ich nicht“.
 - Model and focus: an app of the catalog (https://lernapps.net/apps/llms.txt) as model; what matters most (exercises,
   visualisations, game feel).
+  - Abgedeckt durch die Antwort zur ersten App: „all diese Sachen sind mir wichtig.“ (Übungen, Bilder, Probetest wie
+    die echte Lernkontrolle). Vorbild: `musik-tonhoehe-harmonik`, dieselbe Bauart (guess).
 - Hurdles: misconceptions and mistakes of the learners; the creator's examples and experiments.
 - Content: who writes it (creator, you, from sources); own material (worksheets, tests).
+  - Auftrag aus der Lernlandkarte, bestätigt: „passt so, Sechzehntel mit aufnehmen“. Inhalte schreibe ich aus Quellen (wie bei der ersten App: „pass so“). Kein eigenes Material.
 - Amount: how much content in the first version; what comes later.
+  - Sechs Seiten wie im Auftrag, ein Kapitel: „passt so“.
 - Languages: German only, or German and English. Never English only.
+  - Abgedeckt durch die Antwort zur ersten App: „nur Deutsch“ – „pass so“.
 - Look and feel: calm like a worksheet, or like a game (colours, praise, effects); dark mode.
+  - fixed by the archetype (explainer: ruhig wie ein Arbeitsblatt, Dark Mode folgt dem Gerät)
 - Terms: the creator's words for the main things in the app, used everywhere.
 - Finding the app: what teachers and parents would search for.
 
@@ -105,10 +148,11 @@ For you, the assistant. The process is in AGENTS.md; this plan holds the method.
 
 ### Tasks
 
-- [ ] Map the content as "Map the content" of skill `lernapps-<archetype>-design` says, and write the result under
+- [ ] Map the content as "Map the content" of skill `lernapps-explainer-design` says, and write the result under
       "Content method".
 - [ ] Choose a pattern per competency as skill `lernapps-exercise-patterns` says, and add it to "Content method".
-<!-- archetype: plan -->
+- [ ] Add to "Content method" one line per page, as "Engagement" of skill `lernapps-explainer-design` says: the
+      opening task, the change of activity, the reward, the story.
 - [ ] Add the tasks of Code, each one a piece of work that ends in a commit. First the pattern: one complete page or
       screen, `npx --no -- lernapps plan add --at pattern "<task>"`. Then the others, one call each:
       `npx --no -- lernapps plan add --at pages "<task>"`. Each task says what it builds and what it shows.
@@ -123,7 +167,9 @@ For you, the assistant. The process is in AGENTS.md; this plan holds the method.
 
 <!-- One line each: the patterns and where; the figures and how they are made; the data files; each component, what it
 checks and what it cannot; how a later agent adds a chapter. It becomes the content guide in Code. -->
-<!-- archetype: content-method -->
+<!-- An explainer: per figure, model and component its learning action in two to four sentences
+(`explainer-representation-explained`); per page its prerequisites the app does not practise, and which get a recap
+page, which a link. -->
 
 ## Code
 
@@ -138,11 +184,16 @@ checks and what it cannot; how a later agent adds a chapter. It becomes the cont
 ### Tasks
 
 - [ ] Load skill `lernapps-cli`. Create the app as its section "Create" says:
-      `npx --no -- lernapps create --archetype <archetype>`.
+      `npx --no -- lernapps create --archetype explainer`.
 - [ ] Fill the content guide `.agents/skills/app-content/SKILL.md` from "Notes" and "Content method": every heading,
       no "FILL IN" left. Commit it before any content.
-- [ ] Load skill `lernapps-<archetype>`.
-<!-- archetype: code-start -->
+- [ ] Load skill `lernapps-explainer`.
+- [ ] Load skill `lernapps-content-questions`. Read whole, with your file tool:
+      `.agents/skills/lernapps-explainer/references/blocks.md` and
+      `.agents/skills/lernapps-explainer/references/exercises.md`. A foreign language: also
+      `references/language-tasks.md` in the same folder. A component in the plan: also `references/components.md`.
+- [ ] Decide whether the app needs `scope`, as "`scope`" in
+      `.agents/skills/lernapps-explainer/references/structure.md` says. Write the choice under "Key decisions".
 <!-- tasks: pattern: the one page or screen that is the pattern for the others -->
 - [ ] **Checkpoint:** the pattern page. Load skill `lernapps-learner-check` and do its learner check on the page. Fix
       what it finds. Then show the creator the page and ask whether the others may follow it. Stop and wait. A
@@ -165,7 +216,8 @@ checks and what it cannot; how a later agent adds a chapter. It becomes the cont
 
 ### Tasks
 
-<!-- archetype: commit-start -->
+- [ ] Load skill `lernapps-explainer-self-assessment`. Add the self-assessment as it says, or write under "Key
+      decisions" why the app has none. Commit.
 - [ ] Load skill `lernapps-github`. Set up the repository and Pages as it says. Ask for the repository's name and
       every click only the creator can make, in one message.
 - [ ] Push `work`, open the preview pull request and see its checks to green, as skill `lernapps-github` says.
