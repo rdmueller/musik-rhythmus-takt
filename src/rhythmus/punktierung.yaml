@@ -182,16 +182,16 @@ blocks:
             - { answer: punktierte Viertelpause, seed: 1 }
             - { answer: Viertelnote, seed: 1 }
       - type: number
-        id: punktierte-halbe-achtel
-        text: Wie viele Achtelnoten dauern so lange wie eine punktierte halbe Note?
-        answer: 6
+        id: punktierte-viertelpause
+        text: Wie viele Achtelpausen dauern so lange wie eine punktierte Viertelpause?
+        answer: 3
         tolerance: 0
         mistakes:
-          - answer: 8
-            message: Du hast den Wert verdoppelt. Eine halbe sind 4 Achtel, der Punkt nimmt nur die Hälfte dazu.
           - answer: 4
-            message: So viele Achtel hat die halbe Note ohne Punkt. Der Punkt kommt noch dazu.
-        explanation: "Eine halbe Note = 4 Achtel, die Hälfte davon = 2 Achtel. 4 + 2 = 6."
+            message: Du hast den Wert verdoppelt. Eine Viertelpause sind 2 Achtel, der Punkt nimmt nur die Hälfte dazu.
+          - answer: 2
+            message: So viele Achtel hat die Viertelpause ohne Punkt. Der Punkt kommt noch dazu.
+        explanation: "Bei Pausen gilt der Punkt genauso: Viertelpause (2 Achtel) + die Hälfte (1 Achtel) = 3 Achtel."
         links:
           - title: Punktierung (Wikipedia)
             url: "https://de.wikipedia.org/wiki/Punktierung_(Musik)"

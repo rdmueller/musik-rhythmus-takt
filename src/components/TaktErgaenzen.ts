@@ -2,7 +2,7 @@
 // value buttons, as note or rest, dotted or not. A task is the time signature, the given signs and the missing
 // duration; an answer is a sign, checked by its duration. Pure functions, which the build tests over fixed seeds.
 import { dauer, name, type Wert, type Zeichen, zeichenMitDauer, zufall, waehle } from "./Rhythmus.ts";
-import { fuellen, laenge, type Taktart, taktart } from "./Takt.ts";
+import { fuellen, laenge, type Taktart, taktart, zusammengesetzt } from "./Takt.ts";
 
 export interface Props {
   aufgabe: string;
@@ -28,13 +28,22 @@ export interface Answer {
 }
 
 /** The durations a missing sign may have: plain values, dotted ones where allowed. */
-const fehlende = (punkt: boolean) => [3, 6, 12, 24, ...(punkt ? [9, 18, 36] : [])];
+const fehlende = (punkt: boolean) => [6, 12, 24, ...(punkt ? [18, 36] : [])];
 
 export function generate(seed: number, props: Props): Task {
   const next = zufall(seed);
   for (let versuch = 0; versuch < 50; versuch++) {
     const t = taktart(waehle(next, props.takte.length > 0 ? props.takte : ["4/4"]));
     const l = laenge(t);
+    if (zusammengesetzt(t)) {
+      // the gap lies in the last group of three eighths; every group before it is full
+      const fehlt = waehle(next, props.punkt ? [6, 12, 18] : [6, 12]);
+      const zeichen: Zeichen[] = [];
+      for (let g = 0; g < t.oben / 3 - 1; g++) zeichen.push(...fuellen(next, 18, props.punkt, false));
+      zeichen.push(...fuellen(next, 18 - fehlt, props.punkt, false));
+      if (zeichen.length >= 2 && zeichen.length <= 7) return { ...t, zeichen, fehlt };
+      continue;
+    }
     const fehlt = waehle(
       next,
       fehlende(props.punkt).filter((d) => d < l),

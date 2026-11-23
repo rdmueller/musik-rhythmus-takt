@@ -20,8 +20,8 @@ blocks:
           - answer: 8
             message: "Die 8 unten sagt, welcher Notenwert einen Schlag dauert: Achtel. Die obere Zahl sagt, wie viele."
           - answer: 3
-            message: Drei wären es in punktierten Vierteln. Gefragt sind Achtel.
-        explanation: "Oben steht die Zahl der Schläge (6), unten der Notenwert (Achtel): sechs Achtel, so lang wie ein 3/4-Takt."
+            message: Drei Achtel füllen erst eine Gruppe. Ein 6/8-Takt hat zwei Gruppen zu je drei Achteln.
+        explanation: "Oben steht die Zahl der Zählzeiten (6), unten der Notenwert einer Zählzeit (Achtel): sechs Achtel, so lang wie ein 3/4-Takt."
         links:
           - title: Takt (Wikipedia)
             url: "https://de.wikipedia.org/wiki/Takt_(Musik)"
@@ -31,9 +31,11 @@ blocks:
     blocks:
       - type: text
         text: >-
-          Ein 6/8-Takt hat sechs Achtel. Das ist genau so lang wie ein 3/4-Takt mit sechs Achteln. Der Unterschied liegt
-          in den Gruppen: Im 3/4-Takt zählst du drei Viertel, „1 2 3“. Im 6/8-Takt gehören je drei Achtel zusammen, du
-          zählst „1 2 3 4 5 6“ mit zwei Hauptschlägen, auf 1 und 4. Darum heißt er eine **zusammengesetzte Taktart**.
+          Ein 6/8-Takt hat sechs Achtel, also sechs Zählzeiten. Das ist genau so lang wie ein 3/4-Takt. Der Unterschied
+          liegt in den Gruppen: Im 3/4-Takt zählst du drei Viertel, „1 2 3“, jede ein Schlag. Im 6/8-Takt gehören je drei
+          Achtel zusammen. Du zählst „1 2 3 4 5 6“, spürst aber nur zwei **Hauptschläge**, auf 1 und 4. Weil sich der
+          Takt aus zwei Dreiergruppen zusammensetzt, heißt er **zusammengesetzte Taktart**. Eine Note überschreitet die
+          Mitte des Takts in der Regel nicht.
       - type: vue-component
         component: NotenZeile
         props:
@@ -76,6 +78,12 @@ blocks:
             text: >-
               6/8 und 3/4 dauern gleich lang, sind aber anders gebaut: 3/4 hat drei Viertel-Schläge, 6/8 hat zwei Gruppen
               zu je drei Achteln. Eine Gruppe aus drei Achteln dauert so lange wie eine punktierte Viertel.
+      - type: definition
+        term: Hauptschlag
+        explanation: Ein betonter Schlag, den man spürt; im 6/8-Takt auf 1 und 4, je einer pro Dreiergruppe.
+      - type: definition
+        term: zusammengesetzte Taktart
+        explanation: Eine Taktart aus mehreren gleichen Gruppen, zum Beispiel 6/8 aus zwei Gruppen zu drei Achteln.
   - type: section
     id: beispiel
     title: "Beispiel: ein 6/8-Takt mit punktierten Vierteln"
@@ -135,9 +143,9 @@ blocks:
             - Die Triole dauert so lange wie zwei Achtel, nicht wie drei.
         examples:
           accepted:
-            - { answer: { wert: 16, punkt: false, pause: false }, seed: 1 }
-          rejected:
             - { answer: { wert: 8, punkt: false, pause: false }, seed: 1 }
+          rejected:
+            - { answer: { wert: 4, punkt: false, pause: false }, seed: 1 }
       - type: vue-component
         id: sechs-achtel-taktstriche
         component: TaktstricheSetzen
@@ -155,17 +163,29 @@ blocks:
             - Da ist ein Taktstrich zu viel.
         examples:
           accepted:
-            - { answer: [2, 5], seed: 1 }
+            - { answer: [3, 6], seed: 1 }
           rejected:
-            - { answer: [5], seed: 1 }
-      - type: ordering
-        id: dauern-ordnen
-        text: Ordne nach der Dauer, von kurz nach lang.
-        items: [Achtelnote, Viertelnote, punktierte Viertelnote, halbe Note, punktierte halbe Note]
-        explanation: "In Achteln: 1, 2, 3, 4, 6. Eine punktierte Viertel füllt eine Gruppe im 6/8-Takt, eine punktierte halbe den ganzen Takt."
+            - { answer: [6], seed: 1 }
+      - type: multiple-choice
+        id: eine-gruppe
+        text: Was füllt genau eine Dreiergruppe im 6/8-Takt? Wähle alle passenden.
+        options:
+          - text: eine punktierte Viertelnote
+            correct: true
+            info: Punktierte Viertel = 3 Achtel, genau eine Gruppe.
+          - text: drei Achtelnoten
+            correct: true
+            info: Drei Achtel sind die Gruppe selbst.
+          - text: eine Viertelnote und eine Achtelnote
+            correct: true
+            info: 2 + 1 = 3 Achtel.
+          - text: eine halbe Note
+            correct: false
+            info: Eine halbe Note sind 4 Achtel, sie würde über die Mitte des Takts hinausragen.
+        explanation: Eine Gruppe im 6/8-Takt sind drei Achtel. Alles, was zusammen drei Achtel dauert, füllt sie.
         links:
-          - title: Punktierung (Wikipedia)
-            url: "https://de.wikipedia.org/wiki/Punktierung_(Musik)"
+          - title: Takt (Wikipedia)
+            url: "https://de.wikipedia.org/wiki/Takt_(Musik)"
       - type: text
         text: >-
           Jetzt unterscheidest du 6/8 und 3/4. Als Nächstes lernst du die Triole: drei Noten in der Zeit von zwei.

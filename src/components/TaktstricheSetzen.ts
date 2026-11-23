@@ -2,7 +2,7 @@
 // a bar ends. A task is the time signature and the signs; an answer is the sorted list of gaps (index of the sign
 // before the line), the last bar's end not counted. Pure functions, which the build tests over fixed seeds.
 import { dauer, name, type Zeichen, zufall, waehle } from "./Rhythmus.ts";
-import { fuellen, laenge, type Taktart, taktart } from "./Takt.ts";
+import { fuellenTakt, laenge, type Taktart, taktart } from "./Takt.ts";
 
 export interface Props {
   aufgabe: string;
@@ -26,7 +26,7 @@ export function generate(seed: number, props: Props): Task {
     const t = taktart(waehle(next, props.takte.length > 0 ? props.takte : ["4/4"]));
     const zeichen: Zeichen[] = [];
     for (let i = 0; i < Math.max(2, props.anzahl); i++)
-      zeichen.push(...fuellen(next, laenge(t), props.punkt, props.triole));
+      zeichen.push(...fuellenTakt(next, t, props.punkt, props.triole));
     if (zeichen.length <= 12) return { ...t, zeichen };
   }
   return {

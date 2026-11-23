@@ -9,8 +9,9 @@ blocks:
     blocks:
       - type: text
         text: >-
-          Auf dieser Seite lernst du, Triolen zu lesen und mit ihnen zu rechnen. Du weißt, dass zwei Achtel so lange
-          dauern wie eine Viertel. Die beiden Zeilen im Bild dauern gleich lang, jede so lange wie eine Viertel:
+          Auf dieser Seite lernst du, Triolen zu lesen und mit ihnen zu rechnen. Du weißt von der Seite „Notenwerte“, dass
+          zwei Achtel so lange dauern wie eine Viertel, und vom 6/8-Takt, dass drei normale Achtel eine punktierte
+          Viertel ergeben. Die beiden Zeilen im Bild dauern gleich lang, jede so lange wie eine Viertel:
       - type: vue-component
         component: NotenZeile
         props:
@@ -159,15 +160,15 @@ blocks:
             ohnePunkt: ohne Punkt
             mitPunkt: punktiert
           mistakes:
-            - "Das ist zu viel. Rechne die Triole als eine Viertel und alles andere in Achteln."
+            - "Das ist zu viel. Rechne die Triole als eine Viertel (2 Achtel) und alles andere in Achteln."
             - "Das ist zu wenig. Rechne die Triole als eine Viertel und alles andere in Achteln."
             - Hast du den Punkt im Takt mitgerechnet?
             - Die Triole dauert so lange wie zwei Achtel, nicht wie drei.
         examples:
           accepted:
-            - { answer: { wert: 16, punkt: false, pause: false }, seed: 1 }
-          rejected:
             - { answer: { wert: 8, punkt: false, pause: false }, seed: 1 }
+          rejected:
+            - { answer: { wert: 4, punkt: false, pause: false }, seed: 1 }
       - type: matching
         id: gleich-lang-triolen
         text: Was dauert gleich lang?

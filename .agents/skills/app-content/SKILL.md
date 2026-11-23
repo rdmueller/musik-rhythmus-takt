@@ -47,7 +47,10 @@ Ein Kapitel `rhythmus`; Ids und Sätze wörtlich von `https://lernapps.net/apps/
   (ganze Pause …). „Taktart“ (3/4-Takt), „Taktangabe“ (die Zahlen am Anfang), „Taktstrich“, „Punktierung“, „punktierte
   Viertel“, „Triole“, „Achteltriole“. Zählen: „1 und 2 und“.
 - Taktangabe: obere Zahl = Zahl der Schläge, untere Zahl = Notenwert eines Schlags.
-- Glossar (`definition`): Notenwert, Pause, Punktierung, Taktart, Taktangabe, Triole.
+- Glossar (`definition`): Notenwert, Pause, Punktierung, Taktangabe, Taktstrich, Taktart, Hauptschlag,
+  zusammengesetzte Taktart, Triole.
+- Taktangabe: oben die Zahl der Zählzeiten, unten der Notenwert einer Zählzeit; im 6/8-Takt sechs Zählzeiten, zwei
+  Hauptschläge.
 
 ## Exercise patterns
 
@@ -67,7 +70,9 @@ unten.
   Achtel.
 - **Taktstriche setzen**: `TaktstricheSetzen`, Props wie oben plus `anzahl` (Takte) und `lueckenname`; Knöpfe „nach
   Zeichen n“. Fehler: zu früh, zu spät, fehlt, zu viel.
-- Takte füllt `src/components/Takt.ts` (Bausteine halbe bis Sechzehntel, punktierte Viertel und Achtel).
+- Takte füllt `src/components/Takt.ts`: Bausteine halbe, Viertel, Achtel und punktierte Viertel (keine Sechzehntel im
+  Takt, damit „in Achteln rechnen“ immer aufgeht); Triolen nur auf einem Viertelschlag; 6/8 Gruppe für Gruppe (drei
+  Achtel je Gruppe), die Lücke in der letzten Gruppe.
 - **Zuordnen, ordnen, entscheiden**: `matching`, `ordering`, `single-choice`, `true-false`, `number`, falsche Option
   mit `info`.
 
@@ -106,6 +111,9 @@ Geöffnet 2026-11-23, CC BY-SA 4.0, nur Fakten:
   (Lernenden-Check der Musterseite)
 - „Jede Zeile dauert gleich lang“ verlangt Zeilen gleicher Dauer und proportionale Abstände (16 Sechzehntel, nicht 2).
 - Übungen, deren Antwort wörtlich im Merke-Kasten steht, durch Aufgaben mit einem Denkschritt ersetzen.
+- Aufgaben müssen die Regel der Seite einhalten: 6/8-Takte Gruppe für Gruppe, keine Note über die Taktmitte
+  (Lernenden-Check der ganzen App).
+- Fehlermeldungen einer Komponente, die Noten und Pausen mischt, sprechen beide an.
 
 Aus `musik-tonhoehe-harmonik` übernommen:
 - Erklärfiguren benennen nur Anker; den Rest leiten die Lernenden her, sonst wird die Zuordnung zum Abschreiben.

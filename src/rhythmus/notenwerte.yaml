@@ -236,7 +236,7 @@ blocks:
             message: Du hast einen Halbierungsschritt ausgelassen. Jeder Schritt verdoppelt die Anzahl.
         hint: "Halbiere Schritt für Schritt: ganze, halbe, Viertel, Achtel, Sechzehntel. Jeder Schritt verdoppelt die Anzahl."
         steps:
-          - "Eine {{a.name}} dauert so lange wie {{a.sechzehntel}} Sechzehntelnoten, jede der {{b.plural}} so lange wie {{b.sechzehntel}}. {{a.sechzehntel}} : {{b.sechzehntel}} = {{answer}}."
+          - "Eine {{a.name}} dauert so lange wie {{a.sechzehntel}} Sechzehntelnoten, jede der {{b.plural}} so lange wie {{b.sechzehntel}} Sechzehntel. {{a.sechzehntel}} : {{b.sechzehntel}} = {{answer}}."
       - type: matching
         id: gleich-lang
         text: Was dauert gleich lang?

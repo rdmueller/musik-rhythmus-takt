@@ -92,8 +92,11 @@ const x = (i: number) => lage.value.xs[i] ?? 0;
         <text v-if="namen && namen[i]" :x="x(i) - 8" :y="HOEHE - 4" class="noten-zeile-name">{{ namen[i] }}</text>
       </g>
       <g v-for="([a, b], g) in gruppen" :key="`t${g}`">
-        <path :d="`M${x(a) - 2} 14 v-6 H${x(b) + 10} v6`" class="noten-zeile-klammer" />
-        <text :x="(x(a) + x(b) + 8) / 2" y="12" class="noten-zeile-drei">3</text>
+        <path
+          :d="`M${x(a) - 2} 18 v-5 H${(x(a) + x(b)) / 2 - 3} M${(x(a) + x(b)) / 2 + 11} 13 H${x(b) + 10} v5`"
+          class="noten-zeile-klammer"
+        />
+        <text :x="(x(a) + x(b) + 8) / 2" y="17" class="noten-zeile-drei">3</text>
       </g>
       <line
         v-for="t in taktstriche"

@@ -4,7 +4,7 @@
 # Archetype, null until chosen in Explore. Allowed values: explainer, interactive, quiz.
 archetype: explainer
 # Current phase. Allowed values: explore, plan, code, commit.
-phase: code
+phase: commit
 # prePushFailures: failed pre-push runs, written by the hook.
 prePushFailures: 0
 # failedChecks: failed rules and runs, written by lernapps check and the hooks.
@@ -55,6 +55,20 @@ aufnehmen“.
   6. `triole` (6; braucht `rhythmus-erklaeren`, steht nach den Taktseiten, weil sie mit Takten rechnet)
 - Wiederholung am Kapitelanfang: `tondauer-hoeren`, `taktarten-unterscheiden`, `rhythmus-erklaeren`.
 - Was die App nicht kann: Hören und Klatschen (Triolen hören, Taktwechsel hören); keine Geschichte.
+
+### Behoben nach dem Lernenden-Check der ganzen App
+
+- 6/8: falsche Rückmeldung („drei in punktierten Vierteln“) korrigiert; Taktangabe einheitlich als „Zählzeiten“,
+  im 6/8-Takt sechs Zählzeiten und zwei Hauptschläge; „Hauptschlag“ und „zusammengesetzte Taktart“ im Glossar.
+- Takt-Aufgaben: 6/8 Gruppe für Gruppe (keine Note über die Taktmitte), keine Sechzehntel und punktierten Achtel in
+  Takten (passt zu „in Achteln rechnen“), Triolen nur auf einem Viertelschlag.
+- Triolenklammer: die „3“ steht in einer Lücke der Klammer.
+- Pausen: Rückmeldungen sprechen Noten und Pausen an; keine taktstrichähnlichen Trenner in der Figur.
+- Punktierung: doppelte Aufgabe ersetzt durch eine punktierte Viertelpause; Notenwerte: Einheit im Lösungsweg.
+- 6/8: Ordnen-Aufgabe ersetzt durch „Was füllt eine Dreiergruppe?“; Taktstrich im Glossar; Triolen-Einstieg nennt
+  die Seiten, auf die er sich stützt.
+- Nicht geändert: „Lies dazu noch einmal den Text über der Aufgabe“ und „Seite“ in der Selbsteinschätzung
+  (Laufzeit); Achtel ohne Balken (bewusst, siehe „Was die App nicht kann“).
 
 ### Wie die Lernenden üben (Skill `lernapps-exercise-patterns`; kein Musik-Verweis, nächster: Mathematik)
 
@@ -337,7 +351,7 @@ Keine Töne, kein Klatschen, kein Hören; keine Balken (nur Fähnchen); Rhythmen
 - [x] Run `npx --no -- lernapps check` until it passes.
 - [x] Look at every screen and state, at 360 px and on a desktop, as "Look at the app" of skill `lernapps-cli` says.
       Compare each with its sketch.
-- [ ] Do the whole-app check of skill `lernapps-learner-check`. Fix what it finds and write under "Notes" what you
+- [x] Do the whole-app check of skill `lernapps-learner-check`. Fix what it finds and write under "Notes" what you
       fixed.
 
 ## Commit

@@ -76,11 +76,11 @@ blocks:
             - { wert: 16, pause: true, punkt: false, triole: false }
           oben: 0
           unten: 0
-          taktstriche: [1, 3, 5, 7]
+          taktstriche: []
           luecke: false
           klickbar: false
-          beschreibung: "Fünf Paare, jeweils Note und gleich lange Pause, durch Striche getrennt: ganze Note und ganze Pause (hängt), halbe Note und halbe Pause (liegt), Viertelnote und Viertelpause (Zickzack), Achtelnote und Achtelpause (ein Haken), Sechzehntelnote und Sechzehntelpause (zwei Haken)."
-          namen: [ganze, "", halbe, "", Viertel, "", Achtel, "", Sechz., ""]
+          beschreibung: "Fünf Paare, jeweils Note und gleich lange Pause nebeneinander: ganze Note und ganze Pause (hängt), halbe Note und halbe Pause (liegt), Viertelnote und Viertelpause (Zickzack), Achtelnote und Achtelpause (ein Haken), Sechzehntelnote und Sechzehntelpause (zwei Haken)."
+          namen: [ganze, "", halbe, "", Viertel, "", Achtel, "", "16tel", ""]
         nojs: >-
           Fünf Paare aus Note und gleich langer Pause: ganze Note und ganze Pause (ein Balken, der unter der Linie
           hängt), halbe Note und halbe Pause (ein Balken, der auf der Linie liegt), Viertelnote und Viertelpause
@@ -135,11 +135,11 @@ blocks:
             ohnePunkt: ohne Punkt
             mitPunkt: punktiert
           mistakes: &meldungen
-            - Einen Wert daneben. Zähl die Haken (Achtel einer, Sechzehntel zwei).
+            - Einen Wert daneben. Zähl bei Noten die Fähnchen, bei Pausen die Haken (Achtel einer, Sechzehntel zwei).
             - Schau genau hin, ob es eine Note oder eine Pause ist.
             - "Die ganze Pause hängt unter der Linie, die halbe liegt auf ihr."
             - Schau, ob neben dem Zeichen ein Punkt steht.
-            - "Prüf der Reihe nach: Balken, Zickzack oder Haken? Wie viele Haken?"
+            - "Prüf der Reihe nach: bei Noten Kopf, Hals und Fähnchen, bei Pausen Balken, Zickzack oder Haken."
         examples:
           accepted:
             - { answer: Achtelpause, seed: 1 }

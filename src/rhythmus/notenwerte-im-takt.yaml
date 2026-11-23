@@ -51,6 +51,7 @@ blocks:
           Am Anfang steht die **Taktangabe**, zwei Zahlen übereinander. Die obere sagt, wie viele Schläge ein Takt hat,
           die untere, welcher Notenwert einen Schlag dauert. 3/4 heißt also: drei Viertel pro Takt. Der **Taktstrich**
           beendet einen Takt. Alles zwischen zwei Taktstrichen, Noten, Pausen und Punkte, muss zusammen genau so lang sein.
+          In den Takten dieser Seite kommen halbe, Viertel, Achtel und punktierte Viertel vor.
       - type: vue-component
         component: NotenZeile
         props:
@@ -70,13 +71,6 @@ blocks:
         nojs: >-
           Drei Takte im 3/4-Takt, durch Taktstriche getrennt: halbe Note und Viertelnote; punktierte Viertelnote,
           Achtelnote und Viertelpause; eine punktierte halbe Note. Jeder Takt dauert drei Viertel.
-      - type: table
-        caption: So viel passt in einen Takt
-        header: [Taktart, in Vierteln und Achteln]
-        rows:
-          - [2/4-Takt, "2 Viertel = 4 Achtel"]
-          - [3/4-Takt, "3 Viertel = 6 Achtel"]
-          - [4/4-Takt, "4 Viertel = 8 Achtel"]
       - type: note
         title: Merke
         blocks:
@@ -84,9 +78,19 @@ blocks:
             text: >-
               Zähl Pausen und Punkte mit. Am leichtesten rechnest du alles in Achteln: Viertel 2, punktierte Viertel 3,
               halbe 4, punktierte halbe 6.
+      - type: table
+        caption: So viel passt in einen Takt
+        header: [Taktart, in Vierteln und Achteln]
+        rows:
+          - [2/4-Takt, "2 Viertel = 4 Achtel"]
+          - [3/4-Takt, "3 Viertel = 6 Achtel"]
+          - [4/4-Takt, "4 Viertel = 8 Achtel"]
       - type: definition
         term: Taktangabe
-        explanation: Die zwei Zahlen am Anfang; oben die Zahl der Schläge pro Takt, unten der Notenwert eines Schlags.
+        explanation: Die zwei Zahlen am Anfang; oben die Zahl der Zählzeiten pro Takt, unten der Notenwert einer Zählzeit.
+      - type: definition
+        term: Taktstrich
+        explanation: Ein senkrechter Strich durch die Notenlinie; er beendet einen Takt.
       - type: definition
         term: Taktart
         explanation: Wie ein Takt aufgebaut ist, benannt nach der Taktangabe, zum Beispiel 3/4-Takt.
@@ -143,10 +147,10 @@ blocks:
             - Die Triole dauert so lange wie zwei Achtel, nicht wie drei.
         examples:
           accepted:
-            - { answer: { wert: 16, punkt: false, pause: false }, seed: 1 }
-            - { answer: { wert: 16, punkt: false, pause: true }, seed: 1 }
-          rejected:
             - { answer: { wert: 8, punkt: false, pause: false }, seed: 1 }
+            - { answer: { wert: 8, punkt: false, pause: true }, seed: 1 }
+          rejected:
+            - { answer: { wert: 4, punkt: false, pause: false }, seed: 1 }
       - type: vue-component
         id: taktstriche-setzen
         component: TaktstricheSetzen
@@ -164,11 +168,11 @@ blocks:
             - Da ist ein Taktstrich zu viel.
         examples:
           accepted:
-            - { answer: [2, 5], seed: 1 }
-            - { answer: [5, 2], seed: 1 }
+            - { answer: [2, 6], seed: 1 }
+            - { answer: [6, 2], seed: 1 }
           rejected:
-            - { answer: [1, 5], seed: 1 }
-            - { answer: [5], seed: 1 }
+            - { answer: [1, 6], seed: 1 }
+            - { answer: [6], seed: 1 }
       - type: true-false
         id: zweiviertel-passt
         text: In einen 2/4-Takt passen genau eine Viertelnote und zwei Achtelnoten.
