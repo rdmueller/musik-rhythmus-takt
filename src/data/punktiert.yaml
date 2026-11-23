@@ -1,0 +1,41 @@
+# Punktierte Noten und wie viele kürzere Noten so lange dauern; ohnePunkt und verdoppelt sind die typischen falschen Zahlen.
+- {
+    name: "punktierte halbe Note",
+    plural: "Viertelnoten",
+    anzahl: 3,
+    ohnePunkt: 2,
+    verdoppelt: 4,
+    teil: "eine halbe Note dauert so lange wie 2 Viertel, die Hälfte davon ist 1 Viertel",
+  }
+- {
+    name: "punktierte halbe Note",
+    plural: "Achtelnoten",
+    anzahl: 6,
+    ohnePunkt: 4,
+    verdoppelt: 8,
+    teil: "eine halbe Note dauert so lange wie 4 Achtel, die Hälfte davon sind 2 Achtel",
+  }
+- {
+    name: "punktierte halbe Note",
+    plural: "Sechzehntelnoten",
+    anzahl: 12,
+    ohnePunkt: 8,
+    verdoppelt: 16,
+    teil: "eine halbe Note dauert so lange wie 8 Sechzehntel, die Hälfte davon sind 4 Sechzehntel",
+  }
+- {
+    name: "punktierte Viertelnote",
+    plural: "Achtelnoten",
+    anzahl: 3,
+    ohnePunkt: 2,
+    verdoppelt: 4,
+    teil: "eine Viertelnote dauert so lange wie 2 Achtel, die Hälfte davon ist 1 Achtel",
+  }
+- {
+    name: "punktierte Achtelnote",
+    plural: "Sechzehntelnoten",
+    anzahl: 3,
+    ohnePunkt: 2,
+    verdoppelt: 4,
+    teil: "eine Achtelnote dauert so lange wie 2 Sechzehntel, die Hälfte davon ist 1 Sechzehntel",
+  }

@@ -19,6 +19,8 @@ export interface Task {
   zeichen: Zeichen;
   art: Props["art"];
   punkt: boolean;
+  /** The values the buttons offer. */
+  werte: Wert[];
 }
 
 export type Answer = string;
@@ -31,7 +33,12 @@ export function generate(seed: number, props: Props): Task {
   const wert = waehle<Wert>(next, werte.length > 0 ? werte : [4]);
   const pause = props.art === "pausen" ? true : props.art === "noten" ? false : next() < 0.5;
   const punkt = props.punkt && wert !== 16 && next() < 0.5;
-  return { zeichen: { wert, pause, punkt, triole: false }, art: props.art, punkt: props.punkt };
+  return {
+    zeichen: { wert, pause, punkt, triole: false },
+    art: props.art,
+    punkt: props.punkt,
+    werte: werte.length > 0 ? werte : [4],
+  };
 }
 
 export const solution = (task: Task): Answer => name(task.zeichen);
@@ -43,19 +50,26 @@ const nachbar = (wert: Wert): Wert => (wert === 16 ? 8 : ((wert * 2) as Wert));
 const weit = (wert: Wert): Wert => (wert <= 4 ? ((wert * 4) as Wert) : ((wert / 4) as Wert));
 
 export function wrong(task: Task): Answer {
-  return name({ ...task.zeichen, wert: nachbar(task.zeichen.wert) });
+  const anderer = task.werte.find((w) => w !== task.zeichen.wert);
+  return anderer === undefined
+    ? name({ ...task.zeichen, pause: !task.zeichen.pause })
+    : name({ ...task.zeichen, wert: anderer });
 }
+
+/** A value if the buttons offer it. */
+const angeboten = (task: Task, wert: Wert) => (task.werte.includes(wert) ? wert : undefined);
 
 /** The answer of each typical mistake of about.mistakes, undefined where it cannot happen. */
 export function mistakes(task: Task): (Answer | undefined)[] {
   const z = task.zeichen;
   const ganzeHalbePause = z.pause && z.wert <= 2;
+  const mit = (wert: Wert | undefined) => (wert === undefined ? undefined : name({ ...z, wert }));
   return [
-    ganzeHalbePause ? undefined : name({ ...z, wert: nachbar(z.wert) }),
+    ganzeHalbePause ? undefined : mit(angeboten(task, nachbar(z.wert))),
     task.art === "beides" ? name({ ...z, pause: !z.pause }) : undefined,
-    ganzeHalbePause ? name({ ...z, wert: z.wert === 1 ? 2 : 1 }) : undefined,
-    task.punkt ? name({ ...z, punkt: !z.punkt }) : undefined,
-    name({ ...z, wert: weit(z.wert) }),
+    ganzeHalbePause ? mit(angeboten(task, z.wert === 1 ? 2 : 1)) : undefined,
+    task.punkt && (z.punkt || z.wert !== 16) ? name({ ...z, punkt: !z.punkt }) : undefined,
+    mit(angeboten(task, weit(z.wert))),
   ];
 }
 

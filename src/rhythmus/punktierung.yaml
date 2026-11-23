@@ -1,0 +1,201 @@
+# yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v2.schema.json
+title: Punktierung
+description: "Punktierte Noten lesen und ihre Dauer berechnen: Der Punkt verlängert um die Hälfte."
+competencies: [punktierung]
+blocks:
+  - type: section
+    id: einstieg
+    title: Ein kleiner Punkt
+    blocks:
+      - type: text
+        text: >-
+          Auf dieser Seite lernst du, punktierte Noten zu lesen und ihre Dauer zu berechnen. Du kennst die Notenwerte
+          und Pausen. Manchmal steht rechts neben einer Note ein kleiner Punkt:
+      - type: vue-component
+        component: NotenZeile
+        props:
+          zeichen:
+            - { wert: 2, pause: false, punkt: false, triole: false }
+            - { wert: 2, pause: false, punkt: true, triole: false }
+          oben: 0
+          unten: 0
+          taktstriche: []
+          luecke: false
+          klickbar: false
+          beschreibung: "Eine halbe Note ohne Punkt und eine halbe Note mit Punkt rechts neben dem Kopf."
+          namen: [ohne Punkt, mit Punkt]
+        nojs: "Eine halbe Note ohne Punkt und eine halbe Note mit einem Punkt rechts neben dem Kopf."
+      - type: single-choice
+        id: einstieg-punkt
+        text: Der Punkt kommt zur Note dazu. Was vermutest du, wie lange dauert die halbe Note mit Punkt?
+        options:
+          - text: länger als eine halbe Note
+            correct: true
+            info: Der Punkt verlängert die Note. Wie viel genau, zeigt die Regel.
+          - text: kürzer als eine halbe Note
+            correct: false
+            info: Kürzer machen Fähnchen. Der Punkt verlängert.
+          - text: genauso lange
+            correct: false
+            info: Dann bräuchte man den Punkt nicht. Er ändert die Dauer.
+        explanation: Ein Punkt neben einer Note verlängert sie, und zwar um die Hälfte ihres eigenen Werts.
+        links:
+          - title: Punktierung (Wikipedia)
+            url: "https://de.wikipedia.org/wiki/Punktierung_(Musik)"
+  - type: section
+    id: regel
+    title: Die Hälfte kommt dazu
+    blocks:
+      - type: text
+        text: >-
+          Ein Punkt rechts neben einer Note verlängert sie um die Hälfte ihres eigenen Werts. Eine punktierte halbe Note
+          dauert also eine halbe plus eine Viertel, zusammen drei Viertel. Das gilt auch für Pausen. Die beiden Zeilen
+          im Bild dauern gleich lang:
+      - type: vue-component
+        component: NotenZeile
+        props:
+          zeichen:
+            - { wert: 2, pause: false, punkt: true, triole: false }
+            - { wert: 4, pause: false, punkt: false, triole: false }
+          oben: 0
+          unten: 0
+          taktstriche: []
+          luecke: false
+          klickbar: false
+          proportional: true
+          beschreibung: "Eine punktierte halbe Note und eine Viertelnote; die punktierte halbe nimmt drei Viertel der Zeile ein."
+          namen: [punktierte halbe, Viertel]
+        nojs: "Eine punktierte halbe Note und eine Viertelnote; die punktierte halbe nimmt drei Viertel der Zeile ein."
+      - type: vue-component
+        component: NotenZeile
+        props:
+          zeichen:
+            - { wert: 4, pause: false, punkt: false, triole: false }
+            - { wert: 4, pause: false, punkt: false, triole: false }
+            - { wert: 4, pause: false, punkt: false, triole: false }
+            - { wert: 4, pause: false, punkt: false, triole: false }
+          oben: 0
+          unten: 0
+          taktstriche: []
+          luecke: false
+          klickbar: false
+          proportional: true
+          beschreibung: "Vier Viertelnoten; die ersten drei stehen unter der punktierten halben Note der Zeile darüber."
+          namen: [Viertel, Viertel, Viertel, Viertel]
+        nojs: "Vier Viertelnoten; die ersten drei dauern so lange wie die punktierte halbe Note darüber."
+      - type: table
+        caption: Punktierte Noten
+        header: [punktierte Note, dauert so lange wie]
+        rows:
+          - [punktierte halbe, "3 Viertel"]
+          - [punktierte Viertel, "3 Achtel"]
+          - [punktierte Achtel, "3 Sechzehntel"]
+      - type: note
+        title: Merke
+        blocks:
+          - type: text
+            text: >-
+              Der Punkt verdoppelt nicht. Er nimmt die Hälfte dazu: halbe plus Viertel, Viertel plus Achtel, Achtel plus
+              Sechzehntel.
+      - type: definition
+        term: Punktierung
+        explanation: Ein Punkt rechts neben einer Note oder Pause; er verlängert sie um die Hälfte ihres Werts.
+  - type: section
+    id: beispiel
+    title: "Beispiel: eine punktierte Viertel in Sechzehnteln"
+    blocks:
+      - type: example
+        title: Wie viele Sechzehntelnoten dauern so lange wie eine punktierte Viertelnote?
+        blocks:
+          - type: text
+            text: |
+              1. Eine Viertelnote dauert so lange wie 4 Sechzehntel.
+              2. Der Punkt nimmt die Hälfte dazu: die Hälfte von 4 ist 2.
+              3. 4 + 2 = 6: Eine punktierte Viertel dauert so lange wie **6 Sechzehntelnoten**.
+  - type: section
+    id: uebung
+    title: Übung
+    blocks:
+      - type: single-choice
+        id: punktierte-viertel-teile
+        text: Welche zwei Noten dauern zusammen so lange wie eine punktierte Viertelnote?
+        options:
+          - text: eine Viertelnote und eine Achtelnote
+            correct: true
+            info: Viertel plus die Hälfte davon, also eine Achtel.
+          - text: zwei Viertelnoten
+            correct: false
+            info: Das wäre eine halbe Note. Der Punkt verdoppelt nicht.
+          - text: eine Viertelnote und eine Sechzehntelnote
+            correct: false
+            info: Die Sechzehntel ist nur ein Viertel der Viertel, nicht die Hälfte.
+          - text: eine halbe Note und eine Viertelnote
+            correct: false
+            info: Das ist eine punktierte halbe Note, doppelt so lang.
+        explanation: Punkt heißt plus die Hälfte. Die Hälfte einer Viertel ist eine Achtel.
+        links:
+          - title: Punktierung (Wikipedia)
+            url: "https://de.wikipedia.org/wiki/Punktierung_(Musik)"
+      - type: generated
+        id: punktiert-rechnen
+        given:
+          p: { pick: 1, from: { data: punktiert } }
+        task:
+          text: "Wie viele {{p.plural}} dauern so lange wie eine {{p.name}}?"
+        answer:
+          value: "p.anzahl"
+          compare: { number: { format: integer } }
+        mistakes:
+          - value: "p.verdoppelt"
+            message: "Du hast den Wert verdoppelt. Der Punkt nimmt nur die Hälfte dazu, nicht noch einmal den ganzen Wert."
+          - value: "p.ohnePunkt"
+            message: Du hast den Punkt nicht mitgerechnet. Er verlängert um die Hälfte.
+        hint: "Rechne zuerst ohne Punkt, dann nimm die Hälfte dazu."
+        steps:
+          - "Ohne Punkt: {{p.teil}}. Zusammen sind es {{answer}} {{p.plural}}."
+      - type: vue-component
+        id: punktiert-lesen
+        component: ZeichenLesen
+        props:
+          aufgabe: Wie heißt dieses Zeichen? Achte auf den Punkt.
+          werte: [2, 4, 8]
+          art: beides
+          punkt: true
+          beschriftung:
+            wert: Notenwert
+            art: Note oder Pause
+            note: Note
+            pause: Pause
+            punkt: Punkt
+            ohnePunkt: ohne Punkt
+            mitPunkt: punktiert
+          mistakes:
+            - "Einen Wert daneben. Prüf Kopf, Hals und Fähnchen oder bei Pausen die Form."
+            - Schau genau hin, ob es eine Note oder eine Pause ist.
+            - "Die ganze Pause hängt unter der Linie, die halbe liegt auf ihr."
+            - Schau, ob rechts neben dem Zeichen ein Punkt steht.
+            - "Prüf der Reihe nach: Kopf oder Pausenform, Hals, Fähnchen oder Haken."
+        examples:
+          accepted:
+            - { answer: Viertelpause, seed: 1 }
+          rejected:
+            - { answer: punktierte Viertelpause, seed: 1 }
+            - { answer: Viertelnote, seed: 1 }
+      - type: number
+        id: punktierte-halbe-achtel
+        text: Wie viele Achtelnoten dauern so lange wie eine punktierte halbe Note?
+        answer: 6
+        tolerance: 0
+        mistakes:
+          - answer: 8
+            message: Du hast den Wert verdoppelt. Eine halbe sind 4 Achtel, der Punkt nimmt nur die Hälfte dazu.
+          - answer: 4
+            message: So viele Achtel hat die halbe Note ohne Punkt. Der Punkt kommt noch dazu.
+        explanation: "Eine halbe Note = 4 Achtel, die Hälfte davon = 2 Achtel. 4 + 2 = 6."
+        links:
+          - title: Punktierung (Wikipedia)
+            url: "https://de.wikipedia.org/wiki/Punktierung_(Musik)"
+      - type: text
+        text: >-
+          Jetzt rechnest du punktierte Werte aus. Als Nächstes setzt du alles zusammen: Notenwerte und Pausen in einem
+          Takt.

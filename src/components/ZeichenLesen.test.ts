@@ -33,6 +33,7 @@ test("an eighth rest; its typical mistakes", () => {
     zeichen: { wert: 8 as const, pause: true, punkt: false, triole: false },
     art: "beides" as const,
     punkt: true,
+    werte: [1, 2, 4, 8, 16] as (1 | 2 | 4 | 8 | 16)[],
   };
   expect(solution(task)).toBe("Achtelpause");
   expect(reason(task, "Viertelpause", props)).toBe("Wert");
