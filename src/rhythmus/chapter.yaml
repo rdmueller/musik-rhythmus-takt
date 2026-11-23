@@ -1,4 +1,4 @@
 # yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v2.schema.json
 title: Notenwerte, Pausen und Takt
 summary: Notenwerte und Pausen lesen, Punktierungen und Triolen rechnen, Takte prüfen, ergänzen und gliedern.
-pages: [notenwerte]
+pages: [das-brauchst-du, notenwerte]

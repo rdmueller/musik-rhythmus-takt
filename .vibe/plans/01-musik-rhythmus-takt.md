@@ -322,10 +322,11 @@ Keine Töne, kein Klatschen, kein Hören; keine Balken (nur Fähnchen); Rhythmen
       `.agents/skills/lernapps-explainer/references/structure.md` says. Write the choice under "Key decisions".
 - [x] Musterseite rhythmus/notenwerte: Logik Rhythmus.ts, Komponenten NotenZeile (Anzeige) und ZeichenLesen mit Tests, Datendatei notenwerte.yaml; Einstieg, Notenbaum, Beispiel, Übungen inkl. Sechzehntel
 <!-- tasks: pattern (1 added): the one page or screen that is the pattern for the others -->
-- [ ] **Checkpoint:** the pattern page. Load skill `lernapps-learner-check` and do its learner check on the page. Fix
+- [x] **Checkpoint:** the pattern page. Load skill `lernapps-learner-check` and do its learner check on the page. Fix
       what it finds. Then show the creator the page and ask whether the others may follow it. Stop and wait. A
       change: change the pattern first.
-- [ ] Kapitel rhythmus: Wiederholungsseite das-brauchst-du (recap tondauer-hoeren, taktarten-unterscheiden, rhythmus-erklaeren)
+      Creator: ja
+- [x] Kapitel rhythmus: Wiederholungsseite das-brauchst-du (recap tondauer-hoeren, taktarten-unterscheiden, rhythmus-erklaeren)
 - [ ] Seite rhythmus/pausen: ZeichenLesen mit Pausen, matching Pause zu Note, single-choice hängt/liegt, true-false
 - [ ] Seite rhythmus/punktierung: generated punktierte Dauern, ZeichenLesen punktiert, number, single-choice
 - [ ] Seite rhythmus/notenwerte-im-takt: Komponenten TaktErgaenzen und TaktstricheSetzen mit Tests, true-false, number
