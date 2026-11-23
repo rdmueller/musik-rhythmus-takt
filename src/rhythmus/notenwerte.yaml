@@ -1,0 +1,276 @@
+# yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v2.schema.json
+title: Notenwerte
+description: "Notenwerte von der ganzen bis zur Sechzehntelnote erkennen und ihre Dauer vergleichen."
+competencies: [notenwerte-erkennen]
+blocks:
+  - type: section
+    id: einstieg
+    title: Lang oder kurz?
+    blocks:
+      - type: text
+        text: >-
+          Auf dieser Seite lernst du, Notenwerte von der ganzen bis zur Sechzehntelnote zu erkennen und ihre Dauer zu
+          vergleichen. Du weißt schon, dass Töne lang oder kurz sein können. Note A heißt halbe Note, Note B Achtelnote.
+          Die Namen verraten schon etwas:
+      - type: vue-component
+        component: NotenZeile
+        props:
+          zeichen:
+            - { wert: 2, pause: false, punkt: false, triole: false }
+            - { wert: 8, pause: false, punkt: false, triole: false }
+          oben: 0
+          unten: 0
+          taktstriche: []
+          luecke: false
+          klickbar: false
+          beschreibung: "Zwei Noten auf einer Linie: Note A mit hohlem Kopf und Hals, Note B mit gefülltem Kopf, Hals und einem Fähnchen."
+          namen: [A, B]
+        nojs: "Zwei Noten: A hat einen hohlen Kopf mit Hals, B einen gefüllten Kopf mit Hals und einem Fähnchen."
+      - type: single-choice
+        id: einstieg-laenger
+        text: Welche der beiden Noten dauert länger, die halbe Note A oder die Achtelnote B?
+        options:
+          - text: Note A
+            correct: true
+            info: "Note A ist eine halbe Note: hohler Kopf mit Hals. Sie dauert so lange wie vier Achtelnoten."
+          - text: Note B
+            correct: false
+            info: "Note B ist eine Achtelnote: Das Fähnchen macht eine Note kürzer, nicht länger."
+          - text: Beide gleich lang
+            correct: false
+            info: Die beiden Zeichen sehen verschieden aus. Jedes Zeichen steht für eine andere Dauer.
+        explanation: Die Namen sind Brüche einer ganzen Note. Ein Halb ist mehr als ein Achtel, also dauert die halbe Note länger.
+        links:
+          - title: Notenwert (Wikipedia)
+            url: "https://de.wikipedia.org/wiki/Notenwert"
+  - type: section
+    id: regel
+    title: Immer halbieren
+    blocks:
+      - type: text
+        text: >-
+          Ein **Notenwert** sagt, wie lange ein Ton dauert. Eine Note hat einen Kopf (das Oval), oft einen Hals (den
+          senkrechten Strich) und manchmal Fähnchen (die Haken oben am Hals). Halbierst du eine ganze Note, bekommst du
+          zwei halbe, aus einer halben zwei Viertel, und so weiter bis zur Sechzehntel.
+      - type: note
+        title: Merke
+        blocks:
+          - type: text
+            text: >-
+              Hohler Kopf ohne Hals: ganze Note. Hohler Kopf mit Hals: halbe. Gefüllter Kopf mit Hals: Viertel. Jedes
+              Fähnchen halbiert noch einmal: ein Fähnchen Achtel, zwei Fähnchen Sechzehntel.
+      - type: text
+        text: >-
+          Im Bild ist die Linie die Zeit: Je weiter rechts eine Note steht, desto später kommt sie. Jede Zeile dauert
+          gleich lang, so lange wie eine ganze Note.
+      - type: vue-component
+        component: NotenZeile
+        props:
+          zeichen:
+            - { wert: 1, pause: false, punkt: false, triole: false }
+          oben: 0
+          unten: 0
+          taktstriche: []
+          luecke: false
+          klickbar: false
+          proportional: true
+          beschreibung: "Eine ganze Note: hohler Kopf ohne Hals, am Anfang der Zeile."
+          namen: [ganze]
+        nojs: "Eine ganze Note: hohler Kopf ohne Hals, am Anfang der Zeile."
+      - type: vue-component
+        component: NotenZeile
+        props:
+          zeichen:
+            - { wert: 2, pause: false, punkt: false, triole: false }
+            - { wert: 2, pause: false, punkt: false, triole: false }
+          oben: 0
+          unten: 0
+          taktstriche: []
+          luecke: false
+          klickbar: false
+          proportional: true
+          beschreibung: "Zwei halbe Noten: hohler Kopf mit Hals, gleichmäßig über die Zeile verteilt."
+          namen: [halbe, ""]
+        nojs: "Zwei halbe Noten: hohler Kopf mit Hals, gleichmäßig über die Zeile verteilt."
+      - type: vue-component
+        component: NotenZeile
+        props:
+          zeichen:
+            - { wert: 4, pause: false, punkt: false, triole: false }
+            - { wert: 4, pause: false, punkt: false, triole: false }
+            - { wert: 4, pause: false, punkt: false, triole: false }
+            - { wert: 4, pause: false, punkt: false, triole: false }
+          oben: 0
+          unten: 0
+          taktstriche: []
+          luecke: false
+          klickbar: false
+          proportional: true
+          beschreibung: "Vier Viertelnoten: gefüllter Kopf mit Hals."
+          namen: [Viertel, "", "", ""]
+        nojs: "Vier Viertelnoten: gefüllter Kopf mit Hals."
+      - type: vue-component
+        component: NotenZeile
+        props:
+          zeichen:
+            - { wert: 8, pause: false, punkt: false, triole: false }
+            - { wert: 8, pause: false, punkt: false, triole: false }
+            - { wert: 8, pause: false, punkt: false, triole: false }
+            - { wert: 8, pause: false, punkt: false, triole: false }
+            - { wert: 8, pause: false, punkt: false, triole: false }
+            - { wert: 8, pause: false, punkt: false, triole: false }
+            - { wert: 8, pause: false, punkt: false, triole: false }
+            - { wert: 8, pause: false, punkt: false, triole: false }
+          oben: 0
+          unten: 0
+          taktstriche: []
+          luecke: false
+          klickbar: false
+          proportional: true
+          beschreibung: "Acht Achtelnoten: gefüllter Kopf, Hals und ein Fähnchen."
+          namen: [Achtel, "", "", "", "", "", "", ""]
+        nojs: "Acht Achtelnoten: gefüllter Kopf, Hals und ein Fähnchen."
+      - type: vue-component
+        component: NotenZeile
+        props:
+          zeichen:
+            - { wert: 16, pause: false, punkt: false, triole: false }
+            - { wert: 16, pause: false, punkt: false, triole: false }
+            - { wert: 16, pause: false, punkt: false, triole: false }
+            - { wert: 16, pause: false, punkt: false, triole: false }
+            - { wert: 16, pause: false, punkt: false, triole: false }
+            - { wert: 16, pause: false, punkt: false, triole: false }
+            - { wert: 16, pause: false, punkt: false, triole: false }
+            - { wert: 16, pause: false, punkt: false, triole: false }
+            - { wert: 16, pause: false, punkt: false, triole: false }
+            - { wert: 16, pause: false, punkt: false, triole: false }
+            - { wert: 16, pause: false, punkt: false, triole: false }
+            - { wert: 16, pause: false, punkt: false, triole: false }
+            - { wert: 16, pause: false, punkt: false, triole: false }
+            - { wert: 16, pause: false, punkt: false, triole: false }
+            - { wert: 16, pause: false, punkt: false, triole: false }
+            - { wert: 16, pause: false, punkt: false, triole: false }
+          oben: 0
+          unten: 0
+          taktstriche: []
+          luecke: false
+          klickbar: false
+          proportional: true
+          beschreibung: "Sechzehn Sechzehntelnoten: gefüllter Kopf, Hals und zwei Fähnchen."
+          namen: [Sechzehntel, "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
+        nojs: "Sechzehn Sechzehntelnoten: gefüllter Kopf, Hals und zwei Fähnchen."
+      - type: table
+        caption: So viele Sechzehntelnoten dauern so lange wie …
+        header: [Notenwert, Sechzehntel]
+        rows:
+          - [ganze Note, "16"]
+          - [halbe Note, "8"]
+          - [Viertelnote, "4"]
+          - [Achtelnote, "2"]
+      - type: definition
+        term: Notenwert
+        explanation: Die Dauer einer Note, abzulesen an ihrem Zeichen; jeder Wert dauert halb so lange wie der nächstgrößere.
+  - type: section
+    id: beispiel
+    title: "Beispiel: Viertel in Sechzehnteln"
+    blocks:
+      - type: example
+        title: Wie viele Sechzehntelnoten dauern so lange wie eine Viertelnote?
+        blocks:
+          - type: text
+            text: |
+              1. Eine Viertelnote halbiert: zwei Achtelnoten.
+              2. Jede Achtelnote halbiert: je zwei Sechzehntelnoten.
+              3. Zwei mal zwei: Eine Viertelnote dauert so lange wie **4 Sechzehntelnoten**.
+  - type: section
+    id: uebung
+    title: Übung
+    blocks:
+      - type: vue-component
+        id: noten-lesen
+        component: ZeichenLesen
+        props:
+          aufgabe: Wie heißt diese Note?
+          werte: [1, 2, 4, 8, 16]
+          art: noten
+          punkt: false
+          beschriftung:
+            wert: Notenwert
+            art: Note oder Pause
+            note: Note
+            pause: Pause
+            punkt: Punkt
+            ohnePunkt: ohne Punkt
+            mitPunkt: punktiert
+          mistakes:
+            - "Einen Wert daneben. Zähl die Fähnchen und schau, ob der Kopf hohl ist und einen Hals hat."
+            - Schau genau hin, ob es eine Note oder eine Pause ist.
+            - Die ganze Pause hängt, die halbe liegt.
+            - Schau, ob neben dem Kopf ein Punkt steht.
+            - "Prüf der Reihe nach: Ist der Kopf hohl oder gefüllt? Hat die Note einen Hals? Wie viele Fähnchen?"
+        examples:
+          accepted:
+            - { answer: Achtelnote, seed: 1 }
+          rejected:
+            - { answer: Sechzehntelnote, seed: 1 }
+            - { answer: Viertelnote, seed: 1 }
+      - type: generated
+        id: werte-vergleichen
+        given:
+          a: { pick: 1, from: { data: notenwerte } }
+          b: { pick: 1, from: { data: notenwerte } }
+        where:
+          - "not a.punktiert"
+          - "not b.punktiert"
+          - "a.sechzehntel > b.sechzehntel"
+          - "not (a.sechzehntel == 4 and b.sechzehntel == 1)"
+        task:
+          text: "Wie viele {{b.plural}} dauern so lange wie eine {{a.name}}?"
+        answer:
+          value: "a.sechzehntel / b.sechzehntel"
+          compare: { number: { format: integer } }
+        mistakes:
+          - value: "a.sechzehntel / b.sechzehntel * 2"
+            message: Du hast einmal zu oft halbiert. Geh Schritt für Schritt vom längeren zum kürzeren Wert.
+          - value: "a.sechzehntel / b.sechzehntel / 2"
+            message: Du hast einen Halbierungsschritt ausgelassen. Jeder Schritt verdoppelt die Anzahl.
+        hint: "Halbiere Schritt für Schritt: ganze, halbe, Viertel, Achtel, Sechzehntel. Jeder Schritt verdoppelt die Anzahl."
+        steps:
+          - "Eine {{a.name}} dauert so lange wie {{a.sechzehntel}} Sechzehntelnoten, jede der {{b.plural}} so lange wie {{b.sechzehntel}} Sechzehntel. {{a.sechzehntel}} : {{b.sechzehntel}} = {{answer}}."
+      - type: matching
+        id: gleich-lang
+        text: Was dauert gleich lang?
+        pairs:
+          - { left: zwei Achtelnoten, right: eine Viertelnote }
+          - { left: vier Achtelnoten, right: eine halbe Note }
+          - { left: zwei Sechzehntelnoten, right: eine Achtelnote }
+          - { left: vier Viertelnoten, right: eine ganze Note }
+        distractors: [eine Sechzehntelnote]
+        explanation: Zwei gleiche Noten ergeben den nächstgrößeren Wert, vier gleiche den Wert zwei Stufen darüber.
+        links:
+          - title: Notenwert (Wikipedia)
+            url: "https://de.wikipedia.org/wiki/Notenwert"
+      - type: single-choice
+        id: ein-faehnchen-mehr
+        text: Eine Note hat ein Fähnchen mehr als eine Achtelnote. Wie lange dauert sie im Vergleich zur Achtelnote?
+        options:
+          - text: halb so lange
+            correct: true
+            info: Jedes Fähnchen halbiert. Mit zwei Fähnchen ist es eine Sechzehntelnote, halb so lang wie die Achtel.
+          - text: doppelt so lange
+            correct: false
+            info: Doppelt so lange dauert die Viertelnote, sie hat ein Fähnchen weniger.
+          - text: gleich lange
+            correct: false
+            info: Ein anderes Zeichen heißt eine andere Dauer. Das Fähnchen ändert sie.
+          - text: viermal so lange
+            correct: false
+            info: Viermal so lange wie eine Achtel dauert die halbe Note, ganz ohne Fähnchen.
+        explanation: Ein Fähnchen mehr halbiert die Dauer. Aus der Achtel wird die Sechzehntel.
+        links:
+          - title: Notenwert (Wikipedia)
+            url: "https://de.wikipedia.org/wiki/Notenwert"
+      - type: text
+        text: >-
+          Jetzt liest du jeden Notenwert und vergleichst Dauern. Als Nächstes lernst du die Pausen: Auch Stille hat eine
+          Dauer.

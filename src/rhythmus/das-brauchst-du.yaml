@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v2.schema.json
+title: Das brauchst du hier
+description: "Kurz wiederholt: lange und kurze Töne, 2/4-, 3/4- und 4/4-Takt, Rhythmus und Grundschlag."
+recap: [musik/tondauer-hoeren, musik/taktarten-unterscheiden, musik/rhythmus-erklaeren]
+blocks:
+  - type: text
+    text: >-
+      Kannst du das schon? **Ich kann kurze und lange Töne hören und der Dauer nach ordnen.** **Ich kann den 2/4-, 3/4-
+      und 4/4-Takt am Klang unterscheiden.** **Ich kann erklären, dass der Rhythmus aus Tempo und Tondauer entsteht, und
+      ihn vom Grundschlag unterscheiden.**
+  - type: text
+    text: >-
+      Zur Erinnerung: Der Grundschlag ist der gleichmäßige Puls, den du mitklopfen kannst. Ein Takt fasst Grundschläge
+      zu Gruppen zusammen: zwei im 2/4-Takt, drei im 3/4-Takt, vier im 4/4-Takt. Der erste Schlag jeder Gruppe ist
+      betont. Der Rhythmus entsteht aus langen und kurzen Tönen in einem Tempo; er liegt über dem gleichmäßigen
+      Grundschlag.
+  - type: text
+    text: >-
+      Prüf dich im Kopf: Klopf einen 3/4-Takt und zähl „1 2 3, 1 2 3“, mit Betonung auf der 1. Wenn das klappt, kannst
+      du hier loslegen: Diese App zeigt dir, wie man das alles aufschreibt.

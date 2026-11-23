@@ -1,0 +1,10 @@
+# yaml-language-server: $schema=../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v2.schema.json
+format: 2
+strand: musik/rhythmus-takt
+title: "Notation: Notenwerte, Pausen, Takt"
+intro: >-
+  Du erkennst Notenwerte und Pausen von der ganzen bis zur Sechzehntel, rechnest mit Punktierungen und Triolen und
+  prüfst, ergänzt und gliederst Takte. Am Ende zeigt dir die Selbsteinschätzung auf der Startseite, dein Probetest, was
+  schon sitzt.
+languages: [de]
+chapters: [rhythmus]

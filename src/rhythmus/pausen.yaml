@@ -1,0 +1,188 @@
+# yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v2.schema.json
+title: Pausen
+description: "Pausenzeichen lesen: Jede Pause dauert so lange wie die Note mit gleichem Namen."
+competencies: [pausen-kennen]
+blocks:
+  - type: section
+    id: einstieg
+    title: Auch Stille dauert
+    blocks:
+      - type: text
+        text: >-
+          Auf dieser Seite lernst du, Pausenzeichen zu lesen. Du kennst die Notenwerte von der ganzen bis zur
+          Sechzehntel. In einem Lied gibt es aber auch Stellen, an denen niemand spielt. Schau dir diese Zeile an:
+      - type: vue-component
+        component: NotenZeile
+        props:
+          zeichen:
+            - { wert: 4, pause: false, punkt: false, triole: false }
+            - { wert: 4, pause: true, punkt: false, triole: false }
+            - { wert: 4, pause: false, punkt: false, triole: false }
+            - { wert: 4, pause: true, punkt: false, triole: false }
+          oben: 0
+          unten: 0
+          taktstriche: []
+          luecke: false
+          klickbar: false
+          proportional: true
+          beschreibung: "Eine Zeile aus Viertelnote, Zickzack-Zeichen, Viertelnote, Zickzack-Zeichen, gleichmäßig verteilt."
+        nojs: "Eine Zeile: Viertelnote, ein Zickzack-Zeichen, Viertelnote, ein Zickzack-Zeichen, gleichmäßig verteilt."
+      - type: single-choice
+        id: einstieg-zickzack
+        text: Die Zeichen stehen gleichmäßig verteilt, wie vier Viertel. Wie lange dauert dann ein Zickzack-Zeichen?
+        options:
+          - text: so lange wie eine Viertelnote
+            correct: true
+            info: Es steht im selben Abstand wie die Viertelnoten. Es ist eine Viertelpause.
+          - text: so lange wie eine halbe Note
+            correct: false
+            info: Dann wäre die Zeile länger als vier Viertel. Das Zeichen nimmt nur den Platz einer Viertel ein.
+          - text: gar nicht, es ist nur eine Verzierung
+            correct: false
+            info: Das Zeichen ist eine Pause. Auch Stille hat eine Dauer.
+        explanation: Das Zickzack-Zeichen ist eine Viertelpause. Sie dauert so lange wie eine Viertelnote.
+        links:
+          - title: Notenwert (Wikipedia)
+            url: "https://de.wikipedia.org/wiki/Notenwert"
+  - type: section
+    id: regel
+    title: Jede Note hat ihre Pause
+    blocks:
+      - type: text
+        text: >-
+          Eine **Pause** ist eine Zeit, in der du nicht spielst. Zu jedem Notenwert gibt es eine Pause, die genauso lange
+          dauert und genauso heißt: ganze Pause, halbe Pause, Viertelpause, Achtelpause, Sechzehntelpause.
+      - type: note
+        title: Merke
+        blocks:
+          - type: text
+            text: >-
+              Ganze und halbe Pause sehen fast gleich aus: Die ganze Pause hängt unter der Linie, die halbe liegt auf
+              ihr. Tipp: Die ganze ist „schwerer“ und hängt nach unten. Achtel- und Sechzehntelpause haben einen oder
+              zwei Haken, wie die Noten ein oder zwei Fähnchen.
+      - type: vue-component
+        component: NotenZeile
+        props:
+          zeichen:
+            - { wert: 1, pause: false, punkt: false, triole: false }
+            - { wert: 1, pause: true, punkt: false, triole: false }
+            - { wert: 2, pause: false, punkt: false, triole: false }
+            - { wert: 2, pause: true, punkt: false, triole: false }
+            - { wert: 4, pause: false, punkt: false, triole: false }
+            - { wert: 4, pause: true, punkt: false, triole: false }
+            - { wert: 8, pause: false, punkt: false, triole: false }
+            - { wert: 8, pause: true, punkt: false, triole: false }
+            - { wert: 16, pause: false, punkt: false, triole: false }
+            - { wert: 16, pause: true, punkt: false, triole: false }
+          oben: 0
+          unten: 0
+          taktstriche: []
+          luecke: false
+          klickbar: false
+          beschreibung: "Fünf Paare, jeweils Note und gleich lange Pause nebeneinander: ganze Note und ganze Pause (hängt), halbe Note und halbe Pause (liegt), Viertelnote und Viertelpause (Zickzack), Achtelnote und Achtelpause (ein Haken), Sechzehntelnote und Sechzehntelpause (zwei Haken)."
+          namen: [ganze, "", halbe, "", Viertel, "", Achtel, "", "16tel", ""]
+        nojs: >-
+          Fünf Paare aus Note und gleich langer Pause: ganze Note und ganze Pause (ein Balken, der unter der Linie
+          hängt), halbe Note und halbe Pause (ein Balken, der auf der Linie liegt), Viertelnote und Viertelpause
+          (Zickzack), Achtelnote und Achtelpause (schräger Strich mit einem Haken), Sechzehntelnote und Sechzehntelpause
+          (zwei Haken).
+      - type: definition
+        term: Pause
+        explanation: Eine Zeit ohne Ton; jede Pause dauert so lange wie die Note mit gleichem Namen.
+  - type: section
+    id: beispiel
+    title: "Beispiel: eine halbe Pause in Vierteln"
+    blocks:
+      - type: example
+        title: Wie viele Viertelnoten dauern so lange wie eine halbe Pause?
+        blocks:
+          - type: text
+            text: |
+              1. Eine halbe Pause dauert so lange wie eine halbe Note.
+              2. Eine halbe Note dauert so lange wie zwei Viertelnoten.
+              3. Also dauert die halbe Pause so lange wie **2 Viertelnoten**.
+  - type: section
+    id: uebung
+    title: Übung
+    blocks:
+      - type: matching
+        id: pausen-zuordnen
+        text: Welches Pausenzeichen ist gemeint?
+        pairs:
+          - { left: ein Balken hängt unter der Linie, right: ganze Pause }
+          - { left: ein Balken liegt auf der Linie, right: halbe Pause }
+          - { left: ein Zickzack, right: Viertelpause }
+          - { left: ein schräger Strich mit zwei Haken, right: Sechzehntelpause }
+        distractors: [Achtelpause]
+        explanation: Hängen oder liegen unterscheidet ganze und halbe Pause; die Zahl der Haken unterscheidet Achtel- und Sechzehntelpause.
+        links:
+          - title: Notenwert (Wikipedia)
+            url: "https://de.wikipedia.org/wiki/Notenwert"
+      - type: vue-component
+        id: pausen-lesen
+        component: ZeichenLesen
+        props:
+          aufgabe: Wie heißt diese Pause?
+          werte: [1, 2, 4, 8, 16]
+          art: pausen
+          punkt: false
+          beschriftung: &zeichen
+            wert: Notenwert
+            art: Note oder Pause
+            note: Note
+            pause: Pause
+            punkt: Punkt
+            ohnePunkt: ohne Punkt
+            mitPunkt: punktiert
+          mistakes: &meldungen
+            - Einen Wert daneben. Zähl bei Noten die Fähnchen, bei Pausen die Haken (Achtel einer, Sechzehntel zwei).
+            - Schau genau hin, ob es eine Note oder eine Pause ist.
+            - "Die ganze Pause hängt unter der Linie, die halbe liegt auf ihr."
+            - Schau, ob neben dem Zeichen ein Punkt steht.
+            - "Prüf der Reihe nach: bei Noten Kopf, Hals und Fähnchen, bei Pausen Balken, Zickzack oder Haken."
+        examples:
+          accepted:
+            - { answer: Achtelpause, seed: 1 }
+          rejected:
+            - { answer: Sechzehntelpause, seed: 1 }
+            - { answer: halbe Pause, seed: 1 }
+      - type: vue-component
+        id: note-oder-pause
+        component: ZeichenLesen
+        props:
+          aufgabe: Ist das eine Note oder eine Pause, und welchen Wert hat sie?
+          werte: [1, 2, 4, 8, 16]
+          art: beides
+          punkt: false
+          beschriftung: *zeichen
+          mistakes: *meldungen
+        examples:
+          accepted:
+            - { answer: Achtelpause, seed: 1 }
+          rejected:
+            - { answer: Achtelnote, seed: 1 }
+      - type: true-false
+        id: halbe-pause-zwei-viertel
+        text: Eine halbe Pause dauert so lange wie zwei Viertelnoten.
+        answer: true
+        explanation: Die halbe Pause dauert so lange wie eine halbe Note, und die dauert so lange wie zwei Viertel.
+        links:
+          - title: Notenwert (Wikipedia)
+            url: "https://de.wikipedia.org/wiki/Notenwert"
+      - type: number
+        id: sechzehntelpausen
+        text: Wie viele Sechzehntelpausen dauern so lange wie eine Viertelpause?
+        answer: 4
+        tolerance: 0
+        mistakes:
+          - answer: 2
+            message: Zwei Sechzehntel ergeben erst eine Achtel. Die Viertel ist doppelt so lang.
+          - answer: 8
+            message: Acht Sechzehntel dauern so lange wie eine halbe. Die Viertel ist halb so lang.
+        explanation: Eine Viertel = zwei Achtel = vier Sechzehntel, bei Pausen genau wie bei Noten.
+        links:
+          - title: Notenwert (Wikipedia)
+            url: "https://de.wikipedia.org/wiki/Notenwert"
+      - type: text
+        text: >-
+          Jetzt liest du jede Pause. Als Nächstes lernst du, was ein Punkt neben einer Note oder Pause bedeutet.

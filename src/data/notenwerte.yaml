@@ -1,0 +1,9 @@
+# Die Notenwerte der App mit ihrer Dauer in Sechzehnteln; name im Nominativ mit „eine“, plural für „Wie viele …“.
+- { name: "ganze Note", plural: "ganze Noten", sechzehntel: 16, punktiert: false }
+- { name: "halbe Note", plural: "halbe Noten", sechzehntel: 8, punktiert: false }
+- { name: "Viertelnote", plural: "Viertelnoten", sechzehntel: 4, punktiert: false }
+- { name: "Achtelnote", plural: "Achtelnoten", sechzehntel: 2, punktiert: false }
+- { name: "Sechzehntelnote", plural: "Sechzehntelnoten", sechzehntel: 1, punktiert: false }
+- { name: "punktierte halbe Note", plural: "punktierte halbe Noten", sechzehntel: 12, punktiert: true }
+- { name: "punktierte Viertelnote", plural: "punktierte Viertelnoten", sechzehntel: 6, punktiert: true }
+- { name: "punktierte Achtelnote", plural: "punktierte Achtelnoten", sechzehntel: 3, punktiert: true }
