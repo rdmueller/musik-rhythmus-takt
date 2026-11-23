@@ -373,9 +373,9 @@ Keine Töne, kein Klatschen, kein Hören; keine Balken (nur Fähnchen); Rhythmen
 - [x] **Checkpoint:** publish. Show what the app does and the preview link from the comment "Vorschau der App". Ask
       whether it may go online. Stop and wait for the yes.
       Creator: ja
-- [ ] Load skill `lernapps-commit`. Publish as skill `lernapps-github` says: `work` into `main` as one squash commit,
+- [x] Load skill `lernapps-commit`. Publish as skill `lernapps-github` says: `work` into `main` as one squash commit,
       the run of `Pages` watched to its end.
-- [ ] Open the address the job `deploy` printed and confirm that the app shows. Never use a derived address.
+- [x] Open the address the job `deploy` printed and confirm that the app shows. Never use a derived address.
 - [ ] Load skill `lernapps-listing`. Write the entry under "Entry draft" as it says, with the creator's answer to
       "Finding the app".
 - [ ] Fill the retrospective.
@@ -386,23 +386,52 @@ Keine Töne, kein Klatschen, kein Hören; keine Balken (nur Fähnchen); Rhythmen
 
 ### Entry draft
 
-<!-- YAML valid against the entry schema the listing skill names. Only known values, never invented. -->
-
 ```yaml
+# yaml-language-server: $schema=https://lernapps.net/apps/schemas/entry.v1.schema.json
+title: "Notation: Notenwerte, Pausen, Takt"
+subject: musik
+grades: [8]
+summary: >-
+  Du erkennst Notenwerte und Pausen von der ganzen bis zur Sechzehntel, rechnest mit Punkten und Triolen und füllst
+  und gliederst Takte, auch im 6/8-Takt. Jede Aufgabe zieht neue Werte, und falsche Antworten sagen dir, was du
+  übersehen hast. Am Ende zeigt ein Probetest, was schon sitzt.
+url: https://rdmueller.github.io/musik-rhythmus-takt/
+strand: musik/rhythmus-takt
+keywords: [Notenwerte üben, Pausen Noten, punktierte Noten berechnen, Taktarten 6/8, Triolen, Notation Klasse 8]
+creator: { name: "@rdmueller", url: "https://github.com/rdmueller" }
+source: https://github.com/rdmueller/musik-rhythmus-takt
+commit: COMMIT
+fitness:
+  account: false
+  install: false
+  storage: device
+  thirdParty: none
+  checked: false
 ```
 
 ## Retrospective
 
-<!-- At the end of Commit, before the listing pull request. Facts, short, no names. Read by review and evals. -->
-
 ### Phases reached
 
-<!-- Last phase completed, checkpoints passed. E.g. "commit; confirmed, published". -->
+Commit; Checkpoints Recherche, Plan, Musterseite und Veröffentlichen bestanden; veröffentlicht unter
+https://rdmueller.github.io/musik-rhythmus-takt/. Katalogeintrag vorbereitet; den Pull Request öffnet der Ersteller
+per Klick (kein Zugriff auf lernapps/apps aus dieser Sitzung).
 
 ### Creator turns after the plan
 
-<!-- Number of creator messages after the confirmation, topic of each. Target: at most 3. -->
+3 Nachrichten nach der Bestätigung des Plans:
+1. „ja“ zur Musterseite (Checkpoint).
+2. „ja“ zum Veröffentlichen (Checkpoint).
+3. (offen) der Klick für den Katalog-Pull-Request.
 
 ### Where I had to guess
 
-<!-- Each gap in plan, skills, messages or answers, and your choice. "None" if none. -->
+- Vorbild: die Schwester-App `musik-tonhoehe-harmonik`, gleiche Bauart.
+- Taktarten nur 2/4, 3/4, 4/4, 6/8; nur einfache Punkte; Achtel- und Vierteltriolen; Rhythmen auf einer Linie ohne
+  Tonhöhe, Achtel ohne Balken.
+- Takt-Aufgaben ohne Sechzehntel und punktierte Achtel, damit „in Achteln rechnen“ immer aufgeht (Befund des
+  Lernenden-Checks); Triolen auf einem Viertelschlag; 6/8 Gruppe für Gruppe.
+- Taktangabe als „Zählzeiten“ erklärt (6/8: sechs Zählzeiten, zwei Hauptschläge); die Betonung im 6/8-Takt steht in
+  der Quelle nicht ausdrücklich.
+- Sechzehntel fehlen auf der Lernlandkarte: Vorschlag an lernapps/apps nicht eingereicht (kein Schreibzugriff).
+- Antworten auf Ziel, Lernende, Schwerpunkt und Sprache aus dem Gespräch zur ersten App übernommen.
