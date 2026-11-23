@@ -1,0 +1,182 @@
+# yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v2.schema.json
+title: Triolen
+description: "Triolen lesen und rechnen: drei Noten in der Zeit von zwei."
+competencies: [triole]
+blocks:
+  - type: section
+    id: einstieg
+    title: Drei statt zwei
+    blocks:
+      - type: text
+        text: >-
+          Auf dieser Seite lernst du, Triolen zu lesen und mit ihnen zu rechnen. Du weißt, dass zwei Achtel so lange
+          dauern wie eine Viertel. Die beiden Zeilen im Bild dauern gleich lang, jede so lange wie eine Viertel:
+      - type: vue-component
+        component: NotenZeile
+        props:
+          zeichen:
+            - { wert: 8, pause: false, punkt: false, triole: false }
+            - { wert: 8, pause: false, punkt: false, triole: false }
+          oben: 0
+          unten: 0
+          taktstriche: []
+          luecke: false
+          klickbar: false
+          proportional: true
+          beschreibung: "Zwei Achtelnoten, zusammen so lang wie eine Viertel."
+        nojs: "Zwei Achtelnoten, zusammen so lang wie eine Viertel."
+      - type: vue-component
+        component: NotenZeile
+        props:
+          zeichen:
+            - { wert: 8, pause: false, punkt: false, triole: true }
+            - { wert: 8, pause: false, punkt: false, triole: true }
+            - { wert: 8, pause: false, punkt: false, triole: true }
+          oben: 0
+          unten: 0
+          taktstriche: []
+          luecke: false
+          klickbar: false
+          proportional: true
+          beschreibung: "Drei Achtelnoten unter einer Klammer mit einer 3, zusammen ebenfalls so lang wie eine Viertel."
+        nojs: "Drei Achtelnoten unter einer Klammer mit einer 3, zusammen so lang wie eine Viertel."
+      - type: single-choice
+        id: einstieg-drei
+        text: In der zweiten Zeile stehen drei Achtel in der Zeit von zwei. Was gilt für jede dieser drei Noten?
+        options:
+          - text: Sie ist etwas kürzer als eine normale Achtel.
+            correct: true
+            info: Drei Noten teilen sich die Zeit von zwei Achteln. Jede bekommt weniger Zeit.
+          - text: Sie ist genauso lang wie eine normale Achtel.
+            correct: false
+            info: Dann wäre die Zeile länger als eine Viertel. Sie ist aber gleich lang.
+          - text: Sie ist länger als eine normale Achtel.
+            correct: false
+            info: Mehr Noten in derselben Zeit heißt, jede ist kürzer.
+        explanation: Drei Noten in der Zeit von zwei. Jede dauert zwei Drittel einer normalen Achtel.
+        links:
+          - title: Notenwert (Wikipedia)
+            url: "https://de.wikipedia.org/wiki/Notenwert"
+  - type: section
+    id: regel
+    title: Die 3 über der Gruppe
+    blocks:
+      - type: text
+        text: >-
+          Eine **Triole** sind drei gleiche Noten, die zusammen so lange dauern wie zwei Noten desselben Werts. Man
+          erkennt sie an der 3 über der Gruppe, oft mit einer Klammer. Eine Achteltriole dauert so lange wie zwei Achtel,
+          also eine Viertel. Eine Vierteltriole dauert so lange wie zwei Viertel, also eine halbe Note.
+      - type: vue-component
+        component: NotenZeile
+        props:
+          zeichen:
+            - { wert: 4, pause: false, punkt: false, triole: true }
+            - { wert: 4, pause: false, punkt: false, triole: true }
+            - { wert: 4, pause: false, punkt: false, triole: true }
+            - { wert: 2, pause: false, punkt: false, triole: false }
+          oben: 4
+          unten: 4
+          taktstriche: []
+          luecke: false
+          klickbar: false
+          proportional: true
+          beschreibung: "Ein 4/4-Takt: eine Vierteltriole (drei Viertel unter einer Klammer mit 3), dann eine halbe Note. Die Triole nimmt die erste Hälfte ein."
+          namen: [Vierteltriole, "", "", halbe]
+        nojs: "Ein 4/4-Takt: eine Vierteltriole (drei Viertel mit einer 3 darüber) und eine halbe Note. Die Triole dauert so lange wie eine halbe Note."
+      - type: note
+        title: Merke
+        blocks:
+          - type: text
+            text: >-
+              Rechne eine Triole immer als Gruppe: Drei Triolen-Achtel sind so lang wie zwei Achtel, nicht wie drei.
+      - type: definition
+        term: Triole
+        explanation: Drei gleiche Noten in der Zeit von zweien desselben Werts, markiert mit einer 3.
+  - type: section
+    id: beispiel
+    title: "Beispiel: ein 2/4-Takt mit Triole"
+    blocks:
+      - type: example
+        title: "Im 2/4-Takt steht eine Achteltriole. Was fehlt noch?"
+        blocks:
+          - type: text
+            text: |
+              1. Ein 2/4-Takt dauert zwei Viertel.
+              2. Die Achteltriole dauert so lange wie zwei Achtel, also eine Viertel.
+              3. Es fehlt noch **eine Viertel**, zum Beispiel eine Viertelnote oder eine Viertelpause.
+  - type: section
+    id: uebung
+    title: Übung
+    blocks:
+      - type: number
+        id: triolen-in-viertel
+        text: Wie viele Noten einer Achteltriole dauern zusammen so lange wie eine Viertelnote?
+        answer: 3
+        tolerance: 0
+        mistakes:
+          - answer: 2
+            message: Zwei sind es bei normalen Achteln. Eine Triole hat drei Noten in derselben Zeit.
+          - answer: 6
+            message: Sechs Triolen-Achtel dauern so lange wie eine halbe Note.
+        explanation: Eine Achteltriole hat drei Noten und dauert so lange wie eine Viertel.
+        links:
+          - title: Notenwert (Wikipedia)
+            url: "https://de.wikipedia.org/wiki/Notenwert"
+      - type: single-choice
+        id: vierteltriole-dauer
+        text: Wie lange dauert eine ganze Vierteltriole, also alle drei Noten zusammen?
+        options:
+          - text: so lange wie eine halbe Note
+            correct: true
+            info: Drei Triolen-Viertel in der Zeit von zwei Vierteln, also einer halben Note.
+          - text: so lange wie drei Viertel
+            correct: false
+            info: So lange dauern drei normale Viertel. Die Triole ist kürzer.
+          - text: so lange wie eine Viertel
+            correct: false
+            info: So lange dauert eine Achteltriole.
+          - text: so lange wie eine ganze Note
+            correct: false
+            info: Eine ganze Note dauert vier Viertel, doppelt so lang wie die Vierteltriole.
+        explanation: Eine Triole dauert so lange wie zwei Noten ihres Werts.
+        links:
+          - title: Notenwert (Wikipedia)
+            url: "https://de.wikipedia.org/wiki/Notenwert"
+      - type: vue-component
+        id: triolen-ergaenzen
+        component: TaktErgaenzen
+        props:
+          aufgabe: Was fehlt noch in diesem Takt mit Triole? Wähle den Notenwert für die Lücke.
+          takte: ["2/4", "3/4", "4/4"]
+          punkt: false
+          triole: true
+          beschriftung:
+            wert: Notenwert
+            art: Note oder Pause
+            note: Note
+            pause: Pause
+            punkt: Punkt
+            ohnePunkt: ohne Punkt
+            mitPunkt: punktiert
+          mistakes:
+            - "Das ist zu viel. Rechne die Triole als eine Viertel und alles andere in Achteln."
+            - "Das ist zu wenig. Rechne die Triole als eine Viertel und alles andere in Achteln."
+            - Hast du den Punkt im Takt mitgerechnet?
+            - Die Triole dauert so lange wie zwei Achtel, nicht wie drei.
+        examples:
+          accepted:
+            - { answer: { wert: 16, punkt: false, pause: false }, seed: 1 }
+          rejected:
+            - { answer: { wert: 8, punkt: false, pause: false }, seed: 1 }
+      - type: true-false
+        id: triole-drei-achtel
+        text: Eine Achteltriole dauert so lange wie drei normale Achtelnoten.
+        answer: false
+        explanation: Die drei Noten der Achteltriole dauern zusammen so lange wie zwei normale Achtel, also eine Viertel.
+        links:
+          - title: Notenwert (Wikipedia)
+            url: "https://de.wikipedia.org/wiki/Notenwert"
+      - type: text
+        text: >-
+          Geschafft: Du liest Notenwerte, Pausen, Punkte und Triolen und füllst und gliederst Takte, auch im 6/8-Takt.
+          Prüf jetzt mit der Selbsteinschätzung auf der Startseite, deinem Probetest, was schon sitzt.

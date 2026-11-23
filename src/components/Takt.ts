@@ -25,18 +25,17 @@ export function bausteine(punkt: boolean): Zeichen[] {
   return liste;
 }
 
-/** Signs that fill exactly `laenge` 48ths, drawn; with a triplet of eighths (12) where allowed and room. */
+/** Signs that fill exactly `laenge` 48ths, drawn; with one triplet of eighths (12) where allowed and room. */
 export function fuellen(next: () => number, laenge: number, punkt: boolean, triole: boolean): Zeichen[] {
+  if (triole && laenge >= 12) {
+    const rest = fuellen(next, laenge - 12, punkt, false);
+    const an = Math.floor(next() * (rest.length + 1));
+    const gruppe: Zeichen[] = Array.from({ length: 3 }, () => ({ wert: 8, pause: false, punkt: false, triole: true }));
+    return [...rest.slice(0, an), ...gruppe, ...rest.slice(an)];
+  }
   const zeichen: Zeichen[] = [];
   let rest = laenge;
-  let triolen = triole ? 1 : 0;
   while (rest > 0) {
-    if (triolen > 0 && rest >= 12 && rest % 6 === 0 && next() < 0.5) {
-      for (let i = 0; i < 3; i++) zeichen.push({ wert: 8, pause: false, punkt: false, triole: true });
-      rest -= 12;
-      triolen--;
-      continue;
-    }
     // a sign that fits and leaves a rest that the plain values can still fill (multiples of 3)
     const passend = bausteine(punkt).filter((z) => dauer(z) <= rest && (rest - dauer(z)) % 3 === 0);
     const z = waehle<Zeichen>(

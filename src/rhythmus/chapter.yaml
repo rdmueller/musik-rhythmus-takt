@@ -1,4 +1,22 @@
 # yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v2.schema.json
 title: Notenwerte, Pausen und Takt
 summary: Notenwerte und Pausen lesen, Punktierungen und Triolen rechnen, Takte prüfen, ergänzen und gliedern.
-pages: [das-brauchst-du, notenwerte, pausen, punktierung, notenwerte-im-takt, sechs-achtel-takt]
+pages: [das-brauchst-du, notenwerte, pausen, punktierung, notenwerte-im-takt, sechs-achtel-takt, triolen]
+selfAssessment:
+  pages:
+    - exercises:
+        - /rhythmus/notenwerte/#noten-lesen
+        - /rhythmus/notenwerte/#werte-vergleichen
+        - /rhythmus/pausen/#pausen-lesen
+    - exercises:
+        - /rhythmus/pausen/#note-oder-pause
+        - /rhythmus/punktierung/#punktiert-rechnen
+        - /rhythmus/punktierung/#punktiert-lesen
+    - exercises:
+        - /rhythmus/notenwerte-im-takt/#takt-ergaenzen
+        - /rhythmus/notenwerte-im-takt/#taktstriche-setzen
+        - /rhythmus/sechs-achtel-takt/#sechs-achtel-ergaenzen
+    - exercises:
+        - /rhythmus/sechs-achtel-takt/#sechs-achtel-taktstriche
+        - /rhythmus/triolen/#triolen-ergaenzen
+        - /rhythmus/triolen/#triolen-in-viertel
