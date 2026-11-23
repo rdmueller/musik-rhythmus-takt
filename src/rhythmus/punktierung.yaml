@@ -23,7 +23,7 @@ blocks:
           luecke: false
           klickbar: false
           beschreibung: "Eine halbe Note ohne Punkt und eine halbe Note mit Punkt rechts neben dem Kopf."
-          namen: [ohne Punkt, mit Punkt]
+          namen: [ohne, mit Punkt]
         nojs: "Eine halbe Note ohne Punkt und eine halbe Note mit einem Punkt rechts neben dem Kopf."
       - type: single-choice
         id: einstieg-punkt

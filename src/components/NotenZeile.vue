@@ -89,7 +89,7 @@ const x = (i: number) => lage.value.xs[i] ?? 0;
           </template>
         </template>
         <circle v-if="z.punkt" :cx="x(i) + 13" :cy="LINIE - 3" r="2.3" class="noten-zeile-voll" />
-        <text v-if="namen && namen[i]" :x="x(i)" :y="HOEHE - 4" class="noten-zeile-name">{{ namen[i] }}</text>
+        <text v-if="namen && namen[i]" :x="x(i) - 8" :y="HOEHE - 4" class="noten-zeile-name">{{ namen[i] }}</text>
       </g>
       <g v-for="([a, b], g) in gruppen" :key="`t${g}`">
         <path :d="`M${x(a) - 2} 14 v-6 H${x(b) + 10} v6`" class="noten-zeile-klammer" />
@@ -190,6 +190,7 @@ const x = (i: number) => lage.value.xs[i] ?? 0;
 
 .noten-zeile-name {
   font-size: 10px;
+  text-anchor: start;
 }
 
 .noten-zeile-frage {
