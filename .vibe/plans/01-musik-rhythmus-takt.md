@@ -4,7 +4,7 @@
 # Archetype, null until chosen in Explore. Allowed values: explainer, interactive, quiz.
 archetype: explainer
 # Current phase. Allowed values: explore, plan, code, commit.
-phase: explore
+phase: plan
 # prePushFailures: failed pre-push runs, written by the hook.
 prePushFailures: 0
 # failedChecks: failed rules and runs, written by lernapps check and the hooks.
@@ -25,7 +25,9 @@ For you, the assistant. The process is in AGENTS.md; this plan holds the method.
 
 ## Goal
 
-<!-- 1–2 sentences: what learners do, what they learn. -->
+Lernende der 8. Klasse üben Notation: Sie erkennen Notenwerte und Pausen von der ganzen bis zur Sechzehntel,
+rechnen mit Punktierungen und Triolen und prüfen, ergänzen und gliedern Takte in 2/4, 3/4, 4/4 und 6/8. Ein Probetest
+zeigt, was für die Lernkontrolle schon sitzt.
 
 ## Key decisions
 
@@ -163,9 +165,10 @@ Strang `musik/rhythmus-takt`. Sätze wörtlich von der Karte.
       off), and which misconception the feedback catches.
 - [x] Write under "Notes" the scope: what is in, what is out and why, the data range (for example "all main-group
       elements", never a silent "1–20"), the languages.
-- [ ] **Checkpoint:** research. Show in plain words: the strand or why none, the competencies by chapter, the didactic
+- [x] **Checkpoint:** research. Show in plain words: the strand or why none, the competencies by chapter, the didactic
       approach, the scope, every "(guess)", the sources and what is unchecked, the archetype and its reason. Stop and
       wait. Changes: change them, then ask again.
+      Creator: passt so
 
 ### Answers
 
@@ -194,6 +197,7 @@ Strang `musik/rhythmus-takt`. Sätze wörtlich von der Karte.
 - Terms: the creator's words for the main things in the app, used everywhere.
   - „passt so“ zu: ganze Note, halbe Note, Viertelnote, Achtelnote, Sechzehntelnote und Pausen gleichen Namens; „Taktart“, „Taktangabe“, „Taktstrich“; „Punktierung“, „Triole“; zählen „1 und 2 und“.
 - Finding the app: what teachers and parents would search for.
+  - Vorschlag: „Notenwerte üben“, „Pausen Noten“, „punktierte Noten berechnen“, „Taktarten 6/8“, „Triolen“, „Notation Klasse 8“ – Antwort: „passt so“.
 
 ## Plan
 
@@ -204,28 +208,92 @@ Strang `musik/rhythmus-takt`. Sätze wörtlich von der Karte.
 
 ### Tasks
 
-- [ ] Map the content as "Map the content" of skill `lernapps-explainer-design` says, and write the result under
+- [x] Map the content as "Map the content" of skill `lernapps-explainer-design` says, and write the result under
       "Content method".
-- [ ] Choose a pattern per competency as skill `lernapps-exercise-patterns` says, and add it to "Content method".
-- [ ] Add to "Content method" one line per page, as "Engagement" of skill `lernapps-explainer-design` says: the
+- [x] Choose a pattern per competency as skill `lernapps-exercise-patterns` says, and add it to "Content method".
+- [x] Add to "Content method" one line per page, as "Engagement" of skill `lernapps-explainer-design` says: the
       opening task, the change of activity, the reward, the story.
-- [ ] Add the tasks of Code, each one a piece of work that ends in a commit. First the pattern: one complete page or
+- [x] Add the tasks of Code, each one a piece of work that ends in a commit. First the pattern: one complete page or
       screen, `npx --no -- lernapps plan add --at pattern "<task>"`. Then the others, one call each:
       `npx --no -- lernapps plan add --at pages "<task>"`. Each task says what it builds and what it shows.
-- [ ] Draw a sketch of each screen, component or interactive exercise: a static SVG or image, or the steps with what
+- [x] Draw a sketch of each screen, component or interactive exercise: a static SVG or image, or the steps with what
       learners see after each. Keep the files in `.vibe/sketches/`.
-- [ ] Show the creator, short: goal, competencies by chapter, the Code tasks, the sketches, and the content method in
+- [x] Show the creator, short: goal, competencies by chapter, the Code tasks, the sketches, and the content method in
       plain words (what learners see and do, what the app cannot do). At most 2 questions.
 - [ ] **Checkpoint:** confirm the plan and the content method. Stop and wait for an explicit yes. Changes: change
       them, then ask again.
 
 ### Content method
 
-<!-- One line each: the patterns and where; the figures and how they are made; the data files; each component, what it
-checks and what it cannot; how a later agent adds a chapter. It becomes the content guide in Code. -->
-<!-- An explainer: per figure, model and component its learning action in two to four sentences
-(`explainer-representation-explained`); per page its prerequisites the app does not practise, and which get a recap
-page, which a link. -->
+#### Aufbau
+
+`strand: musik/rhythmus-takt`, ein Kapitel `rhythmus`, Abschnitte wie in `musik-tonhoehe-harmonik`: `einstieg`,
+`regel`, `beispiel`, `uebung`. Anrede „du“, keine Geschichte.
+
+| Seite (id) | Kompetenz | Voraussetzungen, die die App nicht übt |
+|---|---|---|
+| `das-brauchst-du` | recap `tondauer-hoeren`, `taktarten-unterscheiden`, `rhythmus-erklaeren` | – |
+| `notenwerte` | `notenwerte-erkennen` (+ Sechzehntel) | `tondauer-hoeren` → Wiederholung |
+| `pausen` | `pausen-kennen` | – |
+| `punktierung` | `punktierung` | – |
+| `notenwerte-im-takt` | `notenwerte-im-takt` | `taktarten-unterscheiden` → Wiederholung |
+| `sechs-achtel-takt` | `weitere-taktarten` | `taktarten-unterscheiden` → Wiederholung |
+| `triolen` | `triole` | `rhythmus-erklaeren` → Wiederholung |
+
+Selbsteinschätzung im Kapitel (= Probetest der App), 2–3 Komponenten oder `generated` je Inhaltsseite.
+
+#### Rechnen mit Dauern
+
+Gemeinsame Logik `Rhythmus.ts`: jede Dauer als ganze Zahl in 48steln der ganzen Note (Sechzehntel 3, Achteltriole 4,
+Achtel 6, Vierteltriole 8, Viertel 12, Halbe 24, Ganze 48; Punkt: +Hälfte). So rechnen alle Komponenten ohne Brüche
+und mit Triolen exakt. Takt: obere Zahl × (48 / untere Zahl).
+
+#### Komponenten (kein Block kann Notenzeichen zeichnen oder einen Takt prüfen)
+
+- `NotenZeile` (Anzeige, mit `nojs`): Rhythmus auf einer Linie, optional Taktangabe, Taktstriche, Triolenklammer mit
+  „3“; Noten mit Hals und Fähnchen (keine Balken), Pausen in Standardform, Punkte. Lernhandlung: Die Lernenden sehen
+  Zeichen und Dauer nebeneinander (Notenbaum: eine Ganze = zwei Halbe = vier Viertel …).
+- `ZeichenLesen` (Übung): ein Noten- oder Pausenzeichen wird gezeigt; Antwort per Knopf (Name). Props: welche Werte,
+  Noten/Pausen/beides, punktiert ja/nein. Fehler: ein Fähnchen zu viel/wenig, Note statt Pause, ganze/halbe Pause
+  vertauscht, Punkt übersehen.
+- `TaktErgaenzen` (Übung): ein Takt mit Taktangabe, eine Lücke am Ende; Antwort: der fehlende Wert, gewählt aus
+  Noten- oder Pausenknöpfen (beide gleich lang zählen). Prüft die Dauer, nicht das Zeichen. Fehler: Taktangabe falsch
+  gelesen (z. B. 3/4 als drei Halbe), Punkt nicht mitgerechnet, Triole als normale Achtel gezählt.
+- `TaktstricheSetzen` (Übung): eine Rhythmuszeile mit Taktangabe ohne Taktstriche; die Lernenden tippen die Lücken
+  zwischen Noten, an denen ein Takt endet. Fehler: Taktstrich einen Wert zu früh oder zu spät (Summe falsch), 6/8 wie
+  3/4 gegliedert.
+
+Wo eine Ja/Nein- oder Rechenfrage reicht, nimmt die Seite `generated` oder Fragen mit `material` aus `NotenZeile`-
+freiem Text (Werte in Worten), damit keine Komponente ohne Not entsteht.
+
+#### Datendatei
+
+- `src/data/notenwerte.yaml`: Name, Kurzname, Dauer in Achteln und 48steln, punktiert ja/nein; `generated` zieht
+  daraus („Wie viele Sechzehntel dauert eine punktierte Viertel?“).
+
+#### Muster je Kompetenz
+
+| Kompetenz | Übungen |
+|---|---|
+| `notenwerte-erkennen` | `ZeichenLesen` (Noten); `generated` „Wie viele {{a}} dauern so lange wie eine {{b}}?“; `ordering` nach Dauer; `matching` Zeichenbeschreibung ↔ Name |
+| `pausen-kennen` | `ZeichenLesen` (Pausen); `matching` Pause ↔ gleich lange Note; `single-choice` hängt/liegt; `true-false` |
+| `punktierung` | `generated` Dauer punktierter Werte in Achteln oder Sechzehnteln (Fehler: verdoppelt, Punkt ignoriert); `ZeichenLesen` (punktiert); `number`; `single-choice` |
+| `notenwerte-im-takt` | `TaktErgaenzen` (2/4, 3/4, 4/4); `TaktstricheSetzen`; `true-false` „Passt der Takt?“; `number` „Wie viele Achtel hat ein 3/4-Takt?“ |
+| `weitere-taktarten` | `TaktErgaenzen` (6/8); `TaktstricheSetzen` (6/8, Gruppen zu drei); `single-choice` 6/8 vs 3/4; `number` |
+| `triole` | `TaktErgaenzen` mit Triolen; `number` „Wie viele Achteltriolen in einer Viertel?“; `single-choice`; `true-false` |
+
+#### Engagement je Seite (Einstieg · Wechsel · Belohnung)
+
+- `notenwerte`: „Welche Note dauert länger?“ zwei Zeichen · Notenbaum ansehen, Zeichen lesen, rechnen · „Du liest jeden Notenwert“.
+- `pausen`: Pause neben Note: „Wie lange dauert die Stille?“ · zuordnen, lesen · „Stille hat auch eine Dauer“.
+- `punktierung`: „Was macht der Punkt?“ · rechnen, lesen · „Du rechnest punktierte Werte“.
+- `notenwerte-im-takt`: „Ist dieser Takt voll?“ · ergänzen, Taktstriche setzen · „Du füllst und gliederst Takte“.
+- `sechs-achtel-takt`: 6/8 und 3/4 nebeneinander: „Gleich lang – gleich gebaut?“ · gruppieren, ergänzen · „Du unterscheidest 6/8 und 3/4“.
+- `triolen`: „Drei Achtel in einer Viertel?“ · rechnen, ergänzen · Rückblick und Hinweis auf den Probetest.
+
+#### Was die App nicht kann
+
+Keine Töne, kein Klatschen, kein Hören; keine Balken (nur Fähnchen); Rhythmen ohne Tonhöhe.
 
 ## Code
 
@@ -250,11 +318,18 @@ page, which a link. -->
       `references/language-tasks.md` in the same folder. A component in the plan: also `references/components.md`.
 - [ ] Decide whether the app needs `scope`, as "`scope`" in
       `.agents/skills/lernapps-explainer/references/structure.md` says. Write the choice under "Key decisions".
-<!-- tasks: pattern: the one page or screen that is the pattern for the others -->
+- [ ] Musterseite rhythmus/notenwerte: Logik Rhythmus.ts, Komponenten NotenZeile (Anzeige) und ZeichenLesen mit Tests, Datendatei notenwerte.yaml; Einstieg, Notenbaum, Beispiel, Übungen inkl. Sechzehntel
+<!-- tasks: pattern (1 added): the one page or screen that is the pattern for the others -->
 - [ ] **Checkpoint:** the pattern page. Load skill `lernapps-learner-check` and do its learner check on the page. Fix
       what it finds. Then show the creator the page and ask whether the others may follow it. Stop and wait. A
       change: change the pattern first.
-<!-- tasks: pages: the other pages or screens, after the pattern -->
+- [ ] Kapitel rhythmus: Wiederholungsseite das-brauchst-du (recap tondauer-hoeren, taktarten-unterscheiden, rhythmus-erklaeren)
+- [ ] Seite rhythmus/pausen: ZeichenLesen mit Pausen, matching Pause zu Note, single-choice hängt/liegt, true-false
+- [ ] Seite rhythmus/punktierung: generated punktierte Dauern, ZeichenLesen punktiert, number, single-choice
+- [ ] Seite rhythmus/notenwerte-im-takt: Komponenten TaktErgaenzen und TaktstricheSetzen mit Tests, true-false, number
+- [ ] Seite rhythmus/sechs-achtel-takt: TaktErgaenzen und TaktstricheSetzen in 6/8, single-choice 6/8 und 3/4, number
+- [ ] Seite rhythmus/triolen: TaktErgaenzen mit Triolen, number, single-choice, true-false; Selbsteinschätzung des Kapitels
+<!-- tasks: pages (6 added): the other pages or screens, after the pattern -->
 - [ ] Update the content guide so that it describes the app as built (`app-content-matches`).
 - [ ] Run `npx --no -- lernapps check` until it passes.
 - [ ] Look at every screen and state, at 360 px and on a desktop, as "Look at the app" of skill `lernapps-cli` says.
