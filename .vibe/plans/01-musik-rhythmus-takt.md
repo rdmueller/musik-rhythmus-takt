@@ -380,9 +380,10 @@ Keine Töne, kein Klatschen, kein Hören; keine Balken (nur Fähnchen); Rhythmen
       "Finding the app".
 - [x] Fill the retrospective.
 - [x] Commit this plan on `main` and push it: the listing check and the review read it there.
-- [ ] **Checkpoint:** list. Open the listing pull request as skill `lernapps-listing` says, without asking first: the
+- [x] **Checkpoint:** list. Open the listing pull request as skill `lernapps-listing` says, without asking first: the
       pull request is the review. See it to "bestanden", then show the creator the pull request and its result.
-- [ ] If the plan changed since its last push, commit it on `main` and push again.
+      Creator: pr erstellt (lernapps/apps#793: Prüfung bestanden)
+- [x] If the plan changed since its last push, commit it on `main` and push again.
 
 ### Entry draft
 
@@ -414,15 +415,15 @@ fitness:
 ### Phases reached
 
 Commit; Checkpoints Recherche, Plan, Musterseite und Veröffentlichen bestanden; veröffentlicht unter
-https://rdmueller.github.io/musik-rhythmus-takt/. Katalogeintrag vorbereitet; den Pull Request öffnet der Ersteller
-per Klick (kein Zugriff auf lernapps/apps aus dieser Sitzung).
+https://rdmueller.github.io/musik-rhythmus-takt/. Katalog-Pull-Request lernapps/apps#793 vom Ersteller per Klick geöffnet
+(kein Zugriff auf lernapps/apps aus dieser Sitzung); Prüfung des Eintrags: bestanden; Entscheidung von lernapps.net offen.
 
 ### Creator turns after the plan
 
 3 Nachrichten nach der Bestätigung des Plans:
 1. „ja“ zur Musterseite (Checkpoint).
 2. „ja“ zum Veröffentlichen (Checkpoint).
-3. (offen) der Klick für den Katalog-Pull-Request.
+3. „pr erstellt“: der Klick für den Katalog-Pull-Request.
 
 ### Where I had to guess
 
