@@ -376,10 +376,10 @@ Keine Töne, kein Klatschen, kein Hören; keine Balken (nur Fähnchen); Rhythmen
 - [x] Load skill `lernapps-commit`. Publish as skill `lernapps-github` says: `work` into `main` as one squash commit,
       the run of `Pages` watched to its end.
 - [x] Open the address the job `deploy` printed and confirm that the app shows. Never use a derived address.
-- [ ] Load skill `lernapps-listing`. Write the entry under "Entry draft" as it says, with the creator's answer to
+- [x] Load skill `lernapps-listing`. Write the entry under "Entry draft" as it says, with the creator's answer to
       "Finding the app".
-- [ ] Fill the retrospective.
-- [ ] Commit this plan on `main` and push it: the listing check and the review read it there.
+- [x] Fill the retrospective.
+- [x] Commit this plan on `main` and push it: the listing check and the review read it there.
 - [ ] **Checkpoint:** list. Open the listing pull request as skill `lernapps-listing` says, without asking first: the
       pull request is the review. See it to "bestanden", then show the creator the pull request and its result.
 - [ ] If the plan changed since its last push, commit it on `main` and push again.
@@ -400,7 +400,7 @@ strand: musik/rhythmus-takt
 keywords: [Notenwerte üben, Pausen Noten, punktierte Noten berechnen, Taktarten 6/8, Triolen, Notation Klasse 8]
 creator: { name: "@rdmueller", url: "https://github.com/rdmueller" }
 source: https://github.com/rdmueller/musik-rhythmus-takt
-commit: COMMIT
+commit: af4c08a3277a12a4be6f03fbf66480d3dca09d0c
 fitness:
   account: false
   install: false
