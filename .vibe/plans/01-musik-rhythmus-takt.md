@@ -327,7 +327,7 @@ Keine Töne, kein Klatschen, kein Hören; keine Balken (nur Fähnchen); Rhythmen
       change: change the pattern first.
       Creator: ja
 - [x] Kapitel rhythmus: Wiederholungsseite das-brauchst-du (recap tondauer-hoeren, taktarten-unterscheiden, rhythmus-erklaeren)
-- [ ] Seite rhythmus/pausen: ZeichenLesen mit Pausen, matching Pause zu Note, single-choice hängt/liegt, true-false
+- [x] Seite rhythmus/pausen: ZeichenLesen mit Pausen, matching Pause zu Note, single-choice hängt/liegt, true-false
 - [ ] Seite rhythmus/punktierung: generated punktierte Dauern, ZeichenLesen punktiert, number, single-choice
 - [ ] Seite rhythmus/notenwerte-im-takt: Komponenten TaktErgaenzen und TaktstricheSetzen mit Tests, true-false, number
 - [ ] Seite rhythmus/sechs-achtel-takt: TaktErgaenzen und TaktstricheSetzen in 6/8, single-choice 6/8 und 3/4, number
