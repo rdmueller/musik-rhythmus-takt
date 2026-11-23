@@ -6,7 +6,7 @@ const props = {
   werte: [1, 2, 4, 8, 16],
   art: "beides" as const,
   punkt: true,
-  mistakes: ["Wert", "Note/Pause", "ganze/halbe Pause", "Punkt"],
+  mistakes: ["Wert", "Note/Pause", "ganze/halbe Pause", "Punkt", "weit"],
 };
 
 test("the solution is right; wrong answers and each typical mistake are wrong and recognised", () => {

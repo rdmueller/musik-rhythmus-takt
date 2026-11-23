@@ -13,7 +13,7 @@ export const breite = (z: { wert: number; punkt: boolean }) => 30 + (z.punkt ? 8
 
 /** The x of every sign and of every gap after a sign, and the width of the whole drawing. */
 /** Units of width per 48th of a whole note, when signs stand by their duration. */
-export const PRO_48STEL = 6;
+export const PRO_48STEL = 8;
 
 export function anordnung(
   zeichen: readonly { wert: number; punkt: boolean; triole: boolean }[],

@@ -39,6 +39,8 @@ export const solution = (task: Task): Answer => name(task.zeichen);
 export const check = (task: Task, answer: Answer) => answer === solution(task);
 
 const nachbar = (wert: Wert): Wert => (wert === 16 ? 8 : ((wert * 2) as Wert));
+/** A value two steps away: four times as long or short. */
+const weit = (wert: Wert): Wert => (wert <= 4 ? ((wert * 4) as Wert) : ((wert / 4) as Wert));
 
 export function wrong(task: Task): Answer {
   return name({ ...task.zeichen, wert: nachbar(task.zeichen.wert) });
@@ -53,6 +55,7 @@ export function mistakes(task: Task): (Answer | undefined)[] {
     task.art === "beides" ? name({ ...z, pause: !z.pause }) : undefined,
     ganzeHalbePause ? name({ ...z, wert: z.wert === 1 ? 2 : 1 }) : undefined,
     task.punkt ? name({ ...z, punkt: !z.punkt }) : undefined,
+    name({ ...z, wert: weit(z.wert) }),
   ];
 }
 
@@ -67,6 +70,7 @@ export function fehler(task: Task, answer: Answer): number | undefined {
   if (a.pause === z.pause && a.punkt === z.punkt) {
     if (z.pause && z.wert <= 2 && a.wert <= 2) return 2;
     if (a.wert === z.wert * 2 || a.wert * 2 === z.wert) return 0;
+    return 4;
   }
   return undefined;
 }
@@ -120,5 +124,6 @@ export const about = {
     "Note und Pause verwechselt.",
     "Ganze und halbe Pause verwechselt (hängt oder liegt).",
     "Den Punkt übersehen oder einen gesehen, der nicht da ist.",
+    "Einen Wert weiter daneben: Kopf, Hals und Fähnchen nicht geprüft.",
   ],
 };
