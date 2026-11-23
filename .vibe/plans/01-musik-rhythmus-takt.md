@@ -68,7 +68,61 @@ aufnehmen“.
 - Triole: drei Noten in der Zeit von zwei; Dauer im Takt rechnen. Fehler: Triolen-Achtel wie normale Achtel gezählt.
 - Probetest: Selbsteinschätzung des Kapitels (= der App).
 
-<!-- Strand or subject, competencies by chapter (ids), didactic approach, scope, sources and licences, open questions. -->
+### Strang und Kompetenzen (ein Kapitel `rhythmus`)
+
+Strang `musik/rhythmus-takt`. Sätze wörtlich von der Karte.
+- Wiederholung `das-brauchst-du`: recap `tondauer-hoeren` („Ich kann kurze und lange Töne hören und der Dauer nach
+  ordnen.“), `taktarten-unterscheiden` („Ich kann den 2/4-, 3/4- und 4/4-Takt am Klang unterscheiden.“),
+  `rhythmus-erklaeren` („Ich kann erklären, dass der Rhythmus aus Tempo und Tondauer entsteht, und ihn vom Grundschlag
+  unterscheiden.“).
+- `notenwerte-erkennen` – Ich kann ganze, halbe, Viertel- und Achtelnoten unterscheiden und ihre Dauer vergleichen.
+  (+ Sechzehntel, Wunsch des Erstellers; fehlt auf der Karte.)
+- `pausen-kennen` – Ich kann Pausenzeichen lesen und weiß, dass eine Pause genauso lange dauert wie die Note mit
+  gleichem Namen.
+- `punktierung` – Ich kann punktierte Noten lesen und ihre Dauer berechnen.
+- `notenwerte-im-takt` – Ich kann Notenwerte und Pausen zusammenzählen und sagen, ob sie in einen Takt passen.
+- `weitere-taktarten` – Ich kann zusammengesetzte Taktarten wie 6/8 erkennen und einen Taktwechsel hören. (Hören fällt
+  weg.)
+- `triole` – Ich kann eine Triole hören, lesen und klatschen. (Nur lesen und rechnen.)
+
+### Didaktik je Kompetenz (herleiten; welcher Fehler abgefangen wird)
+
+- `notenwerte-erkennen`: Ganze halbieren, Schritt für Schritt (Notenbaum), am Zeichen ablesen: hohl/gefüllt, Hals,
+  Zahl der Fähnchen. Fehler: Fähnchen falsch gezählt (Achtel/Sechzehntel), halbe und ganze verwechselt.
+- `pausen-kennen`: Jede Pause neben ihrer Note; ganze Pause hängt an der 4. Linie, halbe liegt auf der 3. Fehler:
+  ganze/halbe Pause verwechselt, Viertel-/Achtelpause verwechselt.
+- `punktierung`: Punkt = die Hälfte des eigenen Werts dazu; mit Achteln als Einheit rechnen. Fehler: verdoppelt
+  statt Hälfte dazu, Punkt ignoriert.
+- `notenwerte-im-takt`: Taktangabe lesen (oben Zahl der Schläge, unten Notenwert), Takt in Vierteln oder Achteln
+  füllen, fehlenden Wert finden, Taktstriche setzen. Fehler: Taktangabe vertauscht gelesen, Pausen nicht mitgezählt,
+  Punkt vergessen.
+- `weitere-taktarten`: 6/8 = sechs Achtel in zwei Gruppen zu drei, zwei Hauptschläge; Vergleich mit 3/4 (gleiche
+  Dauer, andere Gruppierung). Fehler: 6/8 und 3/4 gleichgesetzt.
+- `triole`: drei Noten in der Zeit von zwei gleichen, mit „3“ markiert; Dauer im Takt. Fehler: Triolen-Achtel als
+  normale Achtel gezählt.
+
+### Umfang
+
+- Drin: Notenwerte ganze bis Sechzehntel, Pausen gleichen Namens, einfache Punktierung (keine Doppelpunktierung),
+  Taktarten 2/4, 3/4, 4/4, 6/8 (3/8 und 2/2 nicht, guess), Achtel- und Vierteltriolen, Takte prüfen und ergänzen,
+  Taktstriche setzen; Rhythmen nur im Bild (Noten ohne Tonhöhe auf einer Linie, guess).
+- Draußen: Hören und Klatschen; Synkope, Auftakt, besondere Taktarten (5/4, 7/8); Haltebogen; Tempo- und
+  Lautstärkezeichen. Grund: nicht im bestätigten Auftrag.
+- Sprache: nur Deutsch.
+
+### Quellen (geöffnet 2026-11-23, CC BY-SA 4.0; nur Fakten)
+
+- Lernlandkarte Musik, https://lernapps.net/apps/map/musik.json – verified.
+- „Notenwert“, https://de.wikipedia.org/wiki/Notenwert – Zeichen und Dauer ganze bis Sechzehntel; Pausen (ganze hängt
+  an der 4. Linie, halbe liegt auf der 3.; gleich lang wie die Note); Triolen (drei in der Zeit von zwei, „3“) –
+  verified. „Triole“ ist eine Begriffsklärung, nicht verlinken.
+- „Punktierung (Musik)“, https://de.wikipedia.org/wiki/Punktierung_(Musik) – Hälfte des eigenen Werts – verified.
+- „Takt (Musik)“, https://de.wikipedia.org/wiki/Takt_(Musik) – Taktangabe oben/unten, 2/4, 3/4, 4/4, 6/8
+  zusammengesetzt – verified; die Betonung von 6/8 steht dort nicht ausdrücklich (unchecked; nur die Gruppierung
+  in zwei Gruppen zu drei Achteln wird gelehrt).
+- „Taktstrich“, https://de.wikipedia.org/wiki/Taktstrich – verified.
+- Sechzehntel fehlen auf der Lernlandkarte: Vorschlag an lernapps/apps (`map/musik.yaml`) bleibt offen, diese Sitzung
+  hat keinen Schreibzugriff dort.
 
 ## Explore
 
@@ -98,16 +152,16 @@ aufnehmen“.
       skills and adds the archetype's tasks to this plan.
 - [x] Load skill `lernapps-explainer-design`. An explainer has the look of the runtime: write "fixed by the
       archetype" under the topic "Look and feel" of "Answers".
-- [ ] Interview: ask every other topic of "Answers", in order. Leave out only a topic that an answer of the creator
+- [x] Interview: ask every other topic of "Answers", in order. Leave out only a topic that an answer of the creator
       already covers, and note which answer. A topic nobody answered is asked once before you write an assumption
       with "(guess)".
-- [ ] Load skill `lernapps-content-research` and research as it says. Write under "Notes": the strand or subject, the
+- [x] Load skill `lernapps-content-research` and research as it says. Write under "Notes": the strand or subject, the
       competencies by chapter with their ids, the sources you opened.
-- [ ] Write under "Notes" which competency goes on which page and which pages form a chapter, as "Map the content" of
+- [x] Write under "Notes" which competency goes on which page and which pages form a chapter, as "Map the content" of
       skill `lernapps-explainer-design` says. Per page, name the prerequisites the app does not practise.
-- [ ] Write under "Notes", one line per competency: how learners get there (they derive it, they do not only read it
+- [x] Write under "Notes", one line per competency: how learners get there (they derive it, they do not only read it
       off), and which misconception the feedback catches.
-- [ ] Write under "Notes" the scope: what is in, what is out and why, the data range (for example "all main-group
+- [x] Write under "Notes" the scope: what is in, what is out and why, the data range (for example "all main-group
       elements", never a silent "1–20"), the languages.
 - [ ] **Checkpoint:** research. Show in plain words: the strand or why none, the competencies by chapter, the didactic
       approach, the scope, every "(guess)", the sources and what is unchecked, the archetype and its reason. Stop and
@@ -128,6 +182,7 @@ aufnehmen“.
   - Abgedeckt durch die Antwort zur ersten App: „all diese Sachen sind mir wichtig.“ (Übungen, Bilder, Probetest wie
     die echte Lernkontrolle). Vorbild: `musik-tonhoehe-harmonik`, dieselbe Bauart (guess).
 - Hurdles: misconceptions and mistakes of the learners; the creator's examples and experiments.
+  - „passt so“ zu: Pausen verwechselt (Viertel/Achtel, ganze/halbe), Punkt falsch gerechnet (verdoppelt statt Hälfte dazu), Taktangabe falsch gelesen, 6/8 und 3/4 gleichgesetzt, Triolen-Achtel wie normale Achtel gezählt.
 - Content: who writes it (creator, you, from sources); own material (worksheets, tests).
   - Auftrag aus der Lernlandkarte, bestätigt: „passt so, Sechzehntel mit aufnehmen“. Inhalte schreibe ich aus Quellen (wie bei der ersten App: „pass so“). Kein eigenes Material.
 - Amount: how much content in the first version; what comes later.
@@ -137,6 +192,7 @@ aufnehmen“.
 - Look and feel: calm like a worksheet, or like a game (colours, praise, effects); dark mode.
   - fixed by the archetype (explainer: ruhig wie ein Arbeitsblatt, Dark Mode folgt dem Gerät)
 - Terms: the creator's words for the main things in the app, used everywhere.
+  - „passt so“ zu: ganze Note, halbe Note, Viertelnote, Achtelnote, Sechzehntelnote und Pausen gleichen Namens; „Taktart“, „Taktangabe“, „Taktstrich“; „Punktierung“, „Triole“; zählen „1 und 2 und“.
 - Finding the app: what teachers and parents would search for.
 
 ## Plan
